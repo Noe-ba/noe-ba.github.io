@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>[Entrée] - Œdipe et la machine apprenante</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        
+        <!-- Navigation retour -->
+        <nav class="nav-top">
+            <a href="index.html">← Retour au sommaire</a>
+        </nav>
+
+        <!-- Titre de la section -->
+        <h1>[Entrée]</h1>
+
+        <!-- ============================================
+             DÉBUT DU CONTENU
+             Copie ton texte d'introduction ici
+             ============================================ -->
+
+        <p>
+            « Et là, on sort peut-être du destin de la tragédie grecque auquel nous avait habitués l'histoire du cinéma, c'est-à-dire la dialectique entre le fatum divin et la volonté… On entre dans une espèce de réalisme du possible », explique Grégory Chatonsky à propos de l'intelligence artificielle dans la revue Brefcinema qui lui consacre en mars 2024 une grande interview sobrement nommée « Conversation avec Grégory Chatonsky ».
+        </p>
+
+        <!-- EXEMPLE : Comment insérer une note de bas de page cliquable -->
+        <p>
+            Cette remarque sur la sortie, avec l'arrivée de l'IA, de la dialectique entre fatum divin et volonté, a attiré mon attention<sup class="note-ref" data-note="note1">1</sup>.
+        </p>
+
+        <!-- EXEMPLE : Comment insérer une citation en italique -->
+        <p>
+            Chatonsky affirme que <em>« l'IA fait apparaître une nouvelle forme de réalisme »</em>.
+        </p>
+
+        <!-- EXEMPLE : Comment insérer une image -->
+        <!--
+        <figure class="content-image">
+            <img src="images/chatonsky-exemple.jpg" alt="Description de l'image">
+            <figcaption>
+                Grégory Chatonsky, <em>Titre de l'œuvre</em>, Année. Crédit photo.
+            </figcaption>
+        </figure>
+        -->
+
+        <p>
+            [... COPIE ICI TOUT TON TEXTE D'INTRODUCTION ...]
+        </p>
+
+        <p>
+            [... Continue jusqu'à la fin de ton entrée ...]
+        </p>
+
+        <!-- ============================================
+             FIN DU CONTENU
+             ============================================ -->
+
+        <!-- Navigation vers la suite -->
+        <nav class="nav-partie">
+            <a href="index.html" class="prev">Sommaire</a>
+            <a href="partie1.html" class="next">Partie 1 : Apprentissage</a>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p><a href="index.html">Retour au sommaire</a></p>
+        </footer>
+
+    </div>
+
+    <!-- ============================================
+         NOTES DE BAS DE PAGE
+         Ajoute ici tes notes cliquables
+         ============================================ -->
+    
+    <!-- Popup pour les notes (se remplit dynamiquement) -->
+    <div id="note-popup" class="note-popup">
+        <button class="note-popup-close" onclick="closeNote()">×</button>
+        <div class="note-popup-content" id="note-content"></div>
+    </div>
+
+    <!-- Définition des notes (cachées, chargées par JavaScript) -->
+    <div style="display: none;">
+        <div id="note1">
+            <strong>1.</strong> Grégory Chatonsky, « Conversation avec Grégory Chatonsky », <em>Brefcinema</em>, mars 2024.
+        </div>
+        
+        <!-- Exemple note 2 -->
+        <div id="note2">
+            <strong>2.</strong> [Ta deuxième note ici]
+        </div>
+        
+        <!-- Ajoute autant de notes que nécessaire -->
+        <div id="note3">
+            <strong>3.</strong> [Ta troisième note ici]
+        </div>
+    </div>
+
+    <!-- JavaScript pour les notes cliquables -->
+    <script>
+        // Gestion des notes cliquables
+        document.querySelectorAll('.note-ref').forEach(ref => {
+            ref.addEventListener('click', function(e) {
+                e.preventDefault();
+                const noteId = this.getAttribute('data-note');
+                const noteContent = document.getElementById(noteId).innerHTML;
+                document.getElementById('note-content').innerHTML = noteContent;
+                document.getElementById('note-popup').classList.add('active');
+            });
+        });
+
+        // Fermer la note
+        function closeNote() {
+            document.getElementById('note-popup').classList.remove('active');
+        }
+
+        // Fermer en cliquant en dehors
+        document.addEventListener('click', function(e) {
+            const popup = document.getElementById('note-popup');
+            if (!popup.contains(e.target) && !e.target.classList.contains('note-ref')) {
+                popup.classList.remove('active');
+            }
+        });
+
+        // Fermer avec la touche Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeNote();
+            }
+        });
+    </script>
+
+</body>
+</html>
