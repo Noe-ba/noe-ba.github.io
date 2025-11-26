@@ -19,6 +19,20 @@
             <a href="index.html">← Retour au sommaire</a>
         </nav>
 
+        <!-- Citation Grothendieck [input] - Accordéon -->
+        <div class="grothendieck-accordion" id="input-accordion">
+            <div class="grothendieck-header" onclick="toggleGrothendieck('input-accordion')">
+                <span class="grothendieck-label">>> [input]</span>
+                <span class="grothendieck-icon">▼</span>
+            </div>
+            <div class="grothendieck-content">
+                <div class="grothendieck-text">
+                    Ce rêve était un lien délicat et vigoureux à la fois, entre un présent lesté encore par bien des poids provenant du passé, et un "demain" tout proche que ce présent contient en germe, un "demain" qui est moi dès à présent, et qui est en moi depuis toujours sûrement…
+                    <footer>— Alexandre Grothendieck, <em>Récoltes et Semailles</em></footer>
+                </div>
+            </div>
+        </div>
+
         <!-- Titre de la section -->
         <h1>[Entrée]</h1>
 
@@ -106,6 +120,12 @@
 
     <!-- JavaScript pour les notes cliquables -->
     <script>
+        // Fonction pour l'accordéon Grothendieck
+        function toggleGrothendieck(id) {
+            const accordion = document.getElementById(id);
+            accordion.classList.toggle('active');
+        }
+
         // Gestion des notes cliquables
         document.querySelectorAll('.note-ref').forEach(ref => {
             ref.addEventListener('click', function(e) {
