@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Partie 3 : Du passé au futur - Œdipe et la machine apprenante</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        
+        <!-- Navigation retour -->
+        <nav class="nav-top">
+            <a href="index.html">← Retour au sommaire</a>
+        </nav>
+
+        <!-- Titre de la partie -->
+        <h1>3 - Du passé au futur : complétion</h1>
+
+        <!-- Exergue (citation de Sophocle) -->
+        <blockquote>
+    A toi cependant, je donne un ordre, et j'y ajoute une imploration :<br>
+    Pour celle qui est dans la maison, tu lui feras<br>
+    La sépulture que tu veux ; s'agissant des tiens, tu feras sûrement ce qu'il faut.<br>
+    [...]<br>
+    Que mon destin aille où il veut aller !<br>
+    <footer>— Œdipe à Créon (vers 1446-1458)</footer>
+</blockquote>
+
+        <!-- ============================================
+             DÉBUT DU CONTENU
+             Copie ton texte de la Partie 1 ici
+             ============================================ -->
+
+        <p>
+            Quand Œdipe résout l'énigme posée par la Sphinge, il libère la ville de Thèbes de la terreur. Fuyant Corinthe après avoir consulté l'oracle de Delphes qui lui prédisait un parricide et un inceste, ignorant, il croit échapper à son destin funeste en affrontant le monstre thébain.
+        </p>
+
+        <p>
+            [... COPIE ICI TOUT TON TEXTE DE LA PARTIE 1 ...]
+        </p>
+
+        <!-- EXEMPLE : Images entre les paragraphes -->
+        <!--
+        <figure class="content-image">
+            <img src="images/partie1-image1.jpg" alt="Description">
+            <figcaption>
+                Hito Steyerl, <em>How Not to Be Seen: A Fucking Didactic Educational .MOV File</em>, 2013.
+            </figcaption>
+        </figure>
+        -->
+
+        <p>
+            [... Continue ton texte ...]
+        </p>
+
+        <!-- EXEMPLE : Note de bas de page -->
+        <p>
+            Yann Le Cun explique que le <em>machine learning</em> est « la capacité d'un ordinateur à reconnaître des représentations à force de les lui montrer de très nombreuses fois »<sup class="note-ref" data-note="note1">1</sup>.
+        </p>
+
+        <p>
+            [... Fin de la partie 1 ...]
+        </p>
+
+        <!-- ============================================
+             FIN DU CONTENU
+             ============================================ -->
+
+        <!-- Navigation vers les autres parties -->
+        <nav class="nav-partie">
+    <a href="partie2.html" class="prev">Partie 2 : Reconnaissance</a>
+    <a href="partie4.html" class="next">Partie 4 : Espace latent</a>
+</nav>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p><a href="index.html">Retour au sommaire</a></p>
+        </footer>
+
+    </div>
+
+    <!-- ============================================
+         NOTES DE BAS DE PAGE
+         Ajoute ici tes notes cliquables
+         ============================================ -->
+    
+    <!-- Popup pour les notes -->
+    <div id="note-popup" class="note-popup">
+        <button class="note-popup-close" onclick="closeNote()">×</button>
+        <div class="note-popup-content" id="note-content"></div>
+    </div>
+
+    <!-- Définition des notes (cachées) -->
+    <div style="display: none;">
+        <div id="note1">
+            <strong>1.</strong> Yann Le Cun, cours au Collège de France, [année].
+        </div>
+        
+        <div id="note2">
+            <strong>2.</strong> [Ta deuxième note ici]
+        </div>
+        
+        <!-- Ajoute autant de notes que nécessaire pour cette partie -->
+    </div>
+
+    <!-- JavaScript pour les notes cliquables -->
+    <script>
+        // Gestion des notes cliquables
+        document.querySelectorAll('.note-ref').forEach(ref => {
+            ref.addEventListener('click', function(e) {
+                e.preventDefault();
+                const noteId = this.getAttribute('data-note');
+                const noteContent = document.getElementById(noteId).innerHTML;
+                document.getElementById('note-content').innerHTML = noteContent;
+                document.getElementById('note-popup').classList.add('active');
+            });
+        });
+
+        // Fermer la note
+        function closeNote() {
+            document.getElementById('note-popup').classList.remove('active');
+        }
+
+        // Fermer en cliquant en dehors
+        document.addEventListener('click', function(e) {
+            const popup = document.getElementById('note-popup');
+            if (!popup.contains(e.target) && !e.target.classList.contains('note-ref')) {
+                popup.classList.remove('active');
+            }
+        });
+
+        // Fermer avec Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeNote();
+            }
+        });
+    </script>
+
+</body>
+</html>
