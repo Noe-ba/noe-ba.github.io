@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>[Sortie] - Œdipe et la machine apprenante</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        
+        <!-- Navigation retour -->
+        <nav class="nav-top">
+            <a href="index.html">← Retour au sommaire</a>
+        </nav>
+
+        <!-- Titre de la section -->
+        <h1>[Sortie]</h1>
+
+        <!-- Citation/Chanson en exergue -->
+        <blockquote>
+            Si j'étais un oiseau<br>
+            Je survolerais les villes<br>
+            Je survolerais la campagne<br>
+            [...]<br>
+            Mais je n'suis qu'un serpent<br>
+            Et ma vie est à terre<br>
+            [...]<br>
+            <footer>— Bertrand Belin et Laurent Bardainne, <em>Oiseau</em></footer>
+        </blockquote>
+
+        <!-- ============================================
+             DÉBUT DU CONTENU
+             Copie ton texte de conclusion ici
+             ============================================ -->
+
+        <p>
+            Nous voilà au terme de cette traversée. Œdipe est devenu aveugle et conscient, et nous avons appris à voir dans le noir. Du présent au futur, nous avons suivi la machine qui apprend. Du présent au passé, nous l'avons regardée reconnaître ses patterns. Du passé au futur, nous l'avons écoutée prédire, compléter, générer.
+        </p>
+
+        <p>
+            [... COPIE ICI TOUT TON TEXTE DE CONCLUSION ...]
+        </p>
+
+        <!-- EXEMPLE : Note de bas de page -->
+        <p>
+            Le désapprentissage désigne dans le champ de la recherche en IA la capacité d'un système à se défaire sélectivement de certaines informations<sup class="note-ref" data-note="note1">1</sup>.
+        </p>
+
+        <p>
+            [... Continue ton texte ...]
+        </p>
+
+        <!-- Citation finale de Grothendieck -->
+        <hr>
+        
+        <blockquote style="margin-top: 3rem;">
+            Dieu a créé le monde au fur et à mesure qu'il le découvrait, ou plutôt il crée le monde éternellement, au fur et à mesure qu'il le découvre - et il le découvre au fur et à mesure qu'il le crée. [...] À chaque aller-et-retour dans ce dialogue infini entre le Créateur et les Choses, qui a lieu en chaque instant et en tous lieux de la Création, Dieu apprend, découvre, Il prend connaissance des choses de plus en plus intimement, au fur et à mesure qu'elles prennent vie et forme et se transforment entre Ses mains.
+            <footer>— Alexandre Grothendieck, <em>Récoltes et Semailles</em></footer>
+        </blockquote>
+
+        <!-- ============================================
+             FIN DU CONTENU
+             ============================================ -->
+
+        <!-- Navigation vers bibliographie -->
+        <nav class="nav-partie">
+            <a href="partie4.html" class="prev">Partie 4 : Espace latent</a>
+            <a href="bibliographie.html" class="next">Bibliographie</a>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p><a href="index.html">Retour au sommaire</a></p>
+        </footer>
+
+    </div>
+
+    <!-- ============================================
+         NOTES DE BAS DE PAGE
+         Ajoute ici tes notes cliquables
+         ============================================ -->
+    
+    <!-- Popup pour les notes -->
+    <div id="note-popup" class="note-popup">
+        <button class="note-popup-close" onclick="closeNote()">×</button>
+        <div class="note-popup-content" id="note-content"></div>
+    </div>
+
+    <!-- Définition des notes (cachées) -->
+    <div style="display: none;">
+        <div id="note1">
+            <strong>1.</strong> [Ta note sur le désapprentissage]
+        </div>
+        
+        <div id="note2">
+            <strong>2.</strong> [Ta deuxième note ici]
+        </div>
+        
+        <!-- Ajoute autant de notes que nécessaire -->
+    </div>
+
+    <!-- JavaScript pour les notes cliquables -->
+    <script>
+        // Gestion des notes cliquables
+        document.querySelectorAll('.note-ref').forEach(ref => {
+            ref.addEventListener('click', function(e) {
+                e.preventDefault();
+                const noteId = this.getAttribute('data-note');
+                const noteContent = document.getElementById(noteId).innerHTML;
+                document.getElementById('note-content').innerHTML = noteContent;
+                document.getElementById('note-popup').classList.add('active');
+            });
+        });
+
+        // Fermer la note
+        function closeNote() {
+            document.getElementById('note-popup').classList.remove('active');
+        }
+
+        // Fermer en cliquant en dehors
+        document.addEventListener('click', function(e) {
+            const popup = document.getElementById('note-popup');
+            if (!popup.contains(e.target) && !e.target.classList.contains('note-ref')) {
+                popup.classList.remove('active');
+            }
+        });
+
+        // Fermer avec Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeNote();
+            }
+        });
+    </script>
+
+</body>
+</html>
