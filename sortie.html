@@ -56,13 +56,19 @@
             [... Continue ton texte ...]
         </p>
 
-        <!-- Citation finale de Grothendieck -->
-        <hr>
-        
-        <blockquote style="margin-top: 3rem;">
-            Dieu a créé le monde au fur et à mesure qu'il le découvrait, ou plutôt il crée le monde éternellement, au fur et à mesure qu'il le découvre - et il le découvre au fur et à mesure qu'il le crée. [...] À chaque aller-et-retour dans ce dialogue infini entre le Créateur et les Choses, qui a lieu en chaque instant et en tous lieux de la Création, Dieu apprend, découvre, Il prend connaissance des choses de plus en plus intimement, au fur et à mesure qu'elles prennent vie et forme et se transforment entre Ses mains.
-            <footer>— Alexandre Grothendieck, <em>Récoltes et Semailles</em></footer>
-        </blockquote>
+        <!-- Citation finale de Grothendieck [output] - Accordéon -->
+        <div class="grothendieck-accordion" id="output-accordion">
+            <div class="grothendieck-header" onclick="toggleGrothendieck('output-accordion')">
+                <span class="grothendieck-label">>> [output]</span>
+                <span class="grothendieck-icon">▼</span>
+            </div>
+            <div class="grothendieck-content">
+                <div class="grothendieck-text">
+                    Dieu a créé le monde au fur et à mesure qu'il le découvrait, ou plutôt il crée le monde éternellement, au fur et à mesure qu'il le découvre - et il le découvre au fur et à mesure qu'il le crée. Il a créé le monde et le crée jour après jour, en s'y reprenant des millions de millions de fois, sans répit, en tâtonnant, se trompant des millions de millions de fois et rectifiant le tir, sans se lasser... A chaque fois, dans ce jeu du coup de sonde en les choses, de la réponse des choses ("c'est pas mal ce coup-là", ou : "là tu déconnes en plein", ou "ça marche comme sur des roulettes, continue comme ça"), et du nouveau coup de sonde rectifiant ou reprenant le coup de sonde précédent, en réponse à la réponse précédente..., à chaque aller-et-retour dans ce dialogue infini entre le Créateur et les Choses, qui a lieu en chaque instant et en tous lieux de la Création, Dieu apprend, découvre, Il prend connaissance des choses de plus en plus intimement, au fur et à mesure qu'elles prennent vie et forme et se transforment entre Ses mains.
+                    <footer>— Alexandre Grothendieck, <em>Récoltes et Semailles</em></footer>
+                </div>
+            </div>
+        </div>
 
         <!-- ============================================
              FIN DU CONTENU
@@ -107,6 +113,12 @@
 
     <!-- JavaScript pour les notes cliquables -->
     <script>
+        // Fonction pour l'accordéon Grothendieck
+        function toggleGrothendieck(id) {
+            const accordion = document.getElementById(id);
+            accordion.classList.toggle('active');
+        }
+
         // Gestion des notes cliquables
         document.querySelectorAll('.note-ref').forEach(ref => {
             ref.addEventListener('click', function(e) {
