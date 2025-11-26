@@ -458,6 +458,71 @@ blockquote {
     }
 }
 
+/* === ACCORDÉON GROTHENDIECK (input/output) === */
+.grothendieck-accordion {
+    margin: 3rem 0;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+}
+
+.grothendieck-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    user-select: none;
+}
+
+.grothendieck-header:hover {
+    background: var(--bg-tertiary);
+}
+
+.grothendieck-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-family: 'Courier New', monospace;
+}
+
+.grothendieck-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.grothendieck-accordion.active .grothendieck-icon {
+    transform: rotate(180deg);
+}
+
+.grothendieck-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.grothendieck-accordion.active .grothendieck-content {
+    max-height: 2000px;
+}
+
+.grothendieck-text {
+    padding: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+}
+
+.grothendieck-text footer {
+    margin-top: 1rem;
+    font-style: normal;
+    text-align: right;
+    color: var(--text-secondary);
+}
+
 /* === CODE (pour les exemples techniques si besoin) === */
 code {
     background: var(--bg-secondary);
