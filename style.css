@@ -4,7 +4,7 @@
    ============================================ */
 
 /* === VARIABLES === */
-:root { 
+:root {
     --bg-primary: #fafafa;
     --bg-secondary: #ffffff;
     --text-primary: #1a1a1a;
@@ -69,12 +69,18 @@ body {
     top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Cercle visible en permanence */
+    border: 3px solid rgba(74, 144, 226, 0.6);
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.15) 0%, rgba(74, 144, 226, 0.05) 60%, transparent 100%);
+    box-shadow: 
+        0 0 30px rgba(74, 144, 226, 0.5),
+        inset 0 0 20px rgba(74, 144, 226, 0.2);
 }
 
 .pupil-trigger::before {
@@ -83,65 +89,87 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150%;
-    height: 150%;
+    width: 120%;
+    height: 120%;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(74, 144, 226, 0.4) 0%, rgba(74, 144, 226, 0.2) 40%, transparent 70%);
-    opacity: 0.5;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    animation: pulse 2.5s ease-in-out infinite;
-    box-shadow: 0 0 40px rgba(74, 144, 226, 0.4);
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.3) 0%, transparent 70%);
+    opacity: 1;
+    animation: pulseStrong 2s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .pupil-trigger:hover::before {
-    opacity: 0.9;
-    transform: translate(-50%, -50%) scale(1.1);
+    animation: pulseStrongFast 1s ease-in-out infinite;
 }
 
-@keyframes pulse {
+@keyframes pulseStrong {
     0%, 100% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.5;
+        opacity: 0.6;
     }
     50% {
-        transform: translate(-50%, -50%) scale(1.15);
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.9;
+    }
+}
+
+@keyframes pulseStrongFast {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
         opacity: 0.7;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 1;
     }
 }
 
 .pupil-trigger::after {
-    content: '👁️ Cliquer pour entrer';
+    content: '👁️ CLIQUEZ ICI';
     position: absolute;
-    top: 125%;
+    top: 115%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--accent);
+    font-size: 18px;
+    font-weight: 600;
+    color: #4a90e2;
     white-space: nowrap;
-    opacity: 0.85;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transition: all 0.3s ease;
     pointer-events: none;
-    text-shadow: 0 0 15px rgba(74, 144, 226, 0.6);
-    animation: floatText 3s ease-in-out infinite;
-    letter-spacing: 0.03em;
+    text-shadow: 
+        0 0 20px rgba(74, 144, 226, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.1em;
+    animation: floatTextStrong 2.5s ease-in-out infinite;
+    background: rgba(15, 23, 42, 0.7);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.4);
 }
 
 .pupil-trigger:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-5px);
+    transform: translateX(-50%) translateY(-8px) scale(1.05);
+    color: #6ba3e8;
+    text-shadow: 
+        0 0 30px rgba(74, 144, 226, 1),
+        0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .pupil-trigger:hover {
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, -50%) scale(1.1);
+    border-color: rgba(74, 144, 226, 0.9);
+    box-shadow: 
+        0 0 50px rgba(74, 144, 226, 0.8),
+        inset 0 0 30px rgba(74, 144, 226, 0.3);
 }
 
-@keyframes floatText {
+@keyframes floatTextStrong {
     0%, 100% {
         transform: translateX(-50%) translateY(0);
     }
     50% {
-        transform: translateX(-50%) translateY(-3px);
+        transform: translateX(-50%) translateY(-6px);
     }
 }
 
