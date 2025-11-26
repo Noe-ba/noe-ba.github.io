@@ -12,17 +12,16 @@
 </head>
 <body>
     
+    <!-- Arrière-plan avec l'œil -->
+    <div class="eye-background"></div>
+    
+    <!-- Zone cliquable de la pupille -->
+    <div class="pupil-trigger" id="pupilTrigger"></div>
+    
     <div class="container">
         
         <!-- Header principal -->
         <header class="main-header">
-            
-            <!-- Option : Photo d'accueil (décommenter si tu veux ajouter une image) -->
-            <!--
-            <div class="hero-image">
-                <img src="images/photo-accueil.jpg" alt="Image d'accueil">
-            </div>
-            -->
             
             <h1 class="main-title">
                 Œdipe et la machine apprenante
@@ -40,12 +39,12 @@
             </div>
             
         </header>
-
+        
         <!-- Séparateur -->
         <div class="separator"></div>
-
-        <!-- Sommaire -->
-        <nav class="sommaire">
+        
+        <!-- Sommaire (caché au départ, révélé au clic) -->
+        <nav class="sommaire" id="sommaire">
             <h2>Sommaire</h2>
             
             <ul class="sommaire-list">
@@ -55,42 +54,36 @@
                         <span class="title">[Entrée]</span>
                     </a>
                 </li>
-
                 <li class="sommaire-partie">
                     <a href="partie1.html">
                         <span class="number">1</span>
                         <span class="title">Du présent au futur : apprentissage</span>
                     </a>
                 </li>
-
                 <li class="sommaire-partie">
                     <a href="partie2.html">
                         <span class="number">2</span>
                         <span class="title">Du présent au passé : reconnaissance</span>
                     </a>
                 </li>
-
                 <li class="sommaire-partie">
                     <a href="partie3.html">
                         <span class="number">3</span>
                         <span class="title">Du passé au futur : complétion</span>
                     </a>
                 </li>
-
                 <li class="sommaire-partie">
                     <a href="partie4.html">
                         <span class="number">4</span>
                         <span class="title">Le présent : espace latent</span>
                     </a>
                 </li>
-
                 <li class="sommaire-outro">
                     <a href="sortie.html">
                         <span class="arrow">→</span>
                         <span class="title">[Sortie]</span>
                     </a>
                 </li>
-
                 <li class="sommaire-biblio">
                     <a href="bibliographie.html">
                         <span class="arrow">→</span>
@@ -99,13 +92,16 @@
                 </li>
             </ul>
         </nav>
-
+        
         <!-- Footer -->
         <footer class="main-footer">
             <p>© 2025 Noé Balthazard - ENSA Bourges</p>
         </footer>
-
+        
     </div>
-
+    
+    <!-- Script pour l'interactivité -->
+    <script src="script.js"></script>
+    
 </body>
 </html>
