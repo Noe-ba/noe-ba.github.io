@@ -101,24 +101,29 @@ body {
 }
 
 .pupil-trigger::after {
-    content: 'Cliquer pour entrer';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--text-tertiary);
-    white-space: nowrap;
-    opacity: 0.4;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-    letter-spacing: 0.1em;
+    content: '';
 }
 
 .pupil-trigger:hover::after {
     opacity: 0.8;
 }
+
+/* === TEXTE D'INVITATION === */
+.click-invitation {
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-tertiary);
+    opacity: 0.5;
+    letter-spacing: 0.1em;
+    margin: 4rem auto 1.5rem;
+    transition: opacity 0.4s ease;
+}
+
+body:hover .click-invitation {
+    opacity: 0.8;
+}
+
 
 /* === HALO LUMINEUX ANIMÉ === */
 body::before {
@@ -254,7 +259,7 @@ body::after {
     width: 60px;
     height: 1px;
     background: var(--border);
-    margin: 5rem auto;
+    margin: 0 auto 5rem;
 }
 
 /* === SOMMAIRE === */
