@@ -799,25 +799,45 @@ hr {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-/* ==========================================
-   MODE SOMBRE - AVEC VALEURS DIRECTES
-   Ajouter à la FIN de style.css
-   ========================================== */
+/* ========================================
+   MODE SOMBRE - CSS À AJOUTER À style.css
+   ======================================== */
 
-/* === MODE SOMBRE === */
+/* === VARIABLES POUR MODE SOMBRE === */
+:root {
+    --bg-light: #fafafa;
+    --bg-secondary-light: #ffffff;
+    --text-primary-light: #1a1a1a;
+    --text-secondary-light: #4a5568;
+    --text-tertiary-light: #718096;
+    --border-light: rgba(74, 144, 226, 0.15);
+    --accent-light: #4a90e2;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    
+    --bg-dark: #0f1729;
+    --bg-secondary-dark: rgba(30, 41, 59, 0.6);
+    --text-primary-dark: #e5e7eb;
+    --text-secondary-dark: #cbd5e1;
+    --text-tertiary-dark: #94a3b8;
+    --border-dark: rgba(74, 144, 226, 0.25);
+    --accent-dark: #6ba3e8;
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+}
+
+/* === MODE SOMBRE ACTIF === */
 body.dark-mode {
-    background: #0f1729 !important;
-    color: #e5e7eb !important;
+    background: var(--bg-dark);
+    color: var(--text-primary-dark);
 }
 
 body.dark-mode .main-title,
 body.dark-mode h1 {
-    color: #e5e7eb !important;
+    color: var(--text-primary-dark);
 }
 
 body.dark-mode .subtitle,
 body.dark-mode h2 {
-    color: #cbd5e1 !important;
+    color: var(--text-secondary-dark);
 }
 
 body.dark-mode .meta-info,
@@ -825,191 +845,328 @@ body.dark-mode .author,
 body.dark-mode .institution,
 body.dark-mode .direction,
 body.dark-mode p {
-    color: #cbd5e1 !important;
+    color: var(--text-secondary-dark);
 }
 
 body.dark-mode .click-invitation {
-    color: #94a3b8 !important;
+    color: var(--text-tertiary-dark);
 }
 
 body.dark-mode .separator {
-    background: rgba(74, 144, 226, 0.25) !important;
+    background: var(--border-dark);
 }
 
 body.dark-mode a {
-    color: #6ba3e8 !important;
+    color: var(--accent-dark);
 }
 
 body.dark-mode a:hover {
-    color: #8bb9ed !important;
+    color: #8bb9ed;
 }
 
 body.dark-mode em,
-body.dark-mode i,
+body.dark-mode i {
+    color: var(--text-primary-dark);
+}
+
 body.dark-mode strong,
 body.dark-mode b {
-    color: #e5e7eb !important;
+    color: var(--text-primary-dark);
 }
 
 body.dark-mode blockquote {
-    color: #cbd5e1 !important;
-    border-left-color: rgba(74, 144, 226, 0.25) !important;
+    color: var(--text-secondary-dark);
+    border-left-color: var(--border-dark);
 }
 
 body.dark-mode code,
 body.dark-mode pre {
-    background: rgba(0, 0, 0, 0.3) !important;
-    color: #e5e7eb !important;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-primary-dark);
 }
 
 body.dark-mode figcaption {
-    color: #94a3b8 !important;
+    color: var(--text-tertiary-dark);
 }
 
 /* Sommaire en mode sombre */
-body.dark-mode .sommaire h2 {
-    color: #cbd5e1 !important;
-}
-
 body.dark-mode .sommaire-list li a {
-    background: rgba(30, 41, 59, 0.6) !important;
-    border-color: rgba(74, 144, 226, 0.25) !important;
-    color: #e5e7eb !important;
+    background: var(--bg-secondary-dark);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
 }
 
 body.dark-mode .sommaire-list li a:hover {
-    background: rgba(30, 41, 59, 0.8) !important;
-    border-color: #6ba3e8 !important;
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--accent-dark);
+    box-shadow: 0 2px 12px var(--shadow-dark);
 }
 
 body.dark-mode .sommaire-list .title {
-    color: #e5e7eb !important;
+    color: var(--text-primary-dark);
 }
 
 body.dark-mode .sommaire-list .number {
-    color: #94a3b8 !important;
+    color: var(--text-tertiary-dark);
 }
 
 body.dark-mode .sommaire-list .arrow {
-    color: #6ba3e8 !important;
+    color: var(--accent-dark);
 }
 
-/* Notes de bas de page */
+body.dark-mode .sommaire h2 {
+    color: var(--text-secondary-dark);
+}
+
+/* Notes de bas de page en mode sombre */
 body.dark-mode .note-popup {
-    background: rgba(15, 23, 42, 0.98) !important;
-    border-color: rgba(74, 144, 226, 0.25) !important;
+    background: rgba(15, 23, 42, 0.98);
+    border-color: var(--border-dark);
 }
 
 body.dark-mode .note-popup-content {
-    color: #e5e7eb !important;
+    color: var(--text-primary-dark);
 }
 
 body.dark-mode .note-popup-close {
-    color: #e5e7eb !important;
-    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-primary-dark);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .note-popup-close:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.2);
 }
 
 body.dark-mode .note-ref {
-    color: #6ba3e8 !important;
-    background: rgba(74, 144, 226, 0.1) !important;
+    color: var(--accent-dark);
+    background: rgba(74, 144, 226, 0.1);
 }
 
-/* Navigation */
+body.dark-mode .note-ref:hover {
+    background: rgba(74, 144, 226, 0.2);
+}
+
+/* Navigation entre parties en mode sombre */
 body.dark-mode .nav-partie a,
 body.dark-mode .nav-top a {
-    background: rgba(30, 41, 59, 0.6) !important;
-    border-color: rgba(74, 144, 226, 0.25) !important;
-    color: #e5e7eb !important;
+    background: var(--bg-secondary-dark);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
 }
 
 body.dark-mode .nav-partie a:hover,
 body.dark-mode .nav-top a:hover {
-    background: rgba(30, 41, 59, 0.8) !important;
-    border-color: #6ba3e8 !important;
-    color: #6ba3e8 !important;
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--accent-dark);
+    color: var(--accent-dark);
 }
 
-/* Accordéon Grothendieck */
-body.dark-mode .grothendieck-accordion {
+/* Inputs et outputs en mode sombre */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode .input-section,
+body.dark-mode .output-section {
     background: transparent !important;
-    border-color: rgba(74, 144, 226, 0.25) !important;
+    border-color: var(--border-dark) !important;
+    color: #e5e7eb !important;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: var(--accent-dark) !important;
+    background: transparent !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: var(--text-tertiary-dark) !important;
+}
+
+body.dark-mode .input-label,
+body.dark-mode .output-label {
+    color: var(--text-secondary-dark) !important;
+}
+
+/* Forcer la couleur du texte dans les zones de texte - même couleur que le texte normal */
+body.dark-mode .output-section,
+body.dark-mode .output-section *,
+body.dark-mode .input-section,
+body.dark-mode .input-section * {
+    color: #e5e7eb !important;
+    background: transparent !important;
+}
+
+/* Classes spécifiques pour entrée/sortie */
+body.dark-mode .terminal-output,
+body.dark-mode .terminal-input,
+body.dark-mode .console-output,
+body.dark-mode .code-output {
+    background: transparent !important;
+    color: #e5e7eb !important;
+    border-color: var(--border-dark) !important;
+}
+
+/* Enlever tout effet de survol sur les zones input/output */
+body.dark-mode .input-section:hover,
+body.dark-mode .output-section:hover,
+body.dark-mode .input-section:hover *,
+body.dark-mode .output-section:hover * {
+    background: transparent !important;
+    color: #e5e7eb !important;
+}
+
+/* Accordéon Grothendieck (input/output) en mode sombre */
+body.dark-mode .grothendieck-accordion {
+    background: transparent;
+    border-color: var(--border-dark);
 }
 
 body.dark-mode .grothendieck-header {
-    background: transparent !important;
+    background: transparent;
 }
 
 body.dark-mode .grothendieck-header:hover {
-    background: rgba(30, 41, 59, 0.3) !important;
+    background: rgba(30, 41, 59, 0.3);
 }
 
 body.dark-mode .grothendieck-label {
-    color: #cbd5e1 !important;
+    color: var(--text-secondary-dark) !important;
 }
 
 body.dark-mode .grothendieck-icon {
-    color: #6ba3e8 !important;
+    color: var(--accent-dark);
 }
 
 body.dark-mode .grothendieck-text {
-    color: #cbd5e1 !important;
-    border-top-color: rgba(74, 144, 226, 0.25) !important;
+    color: var(--text-secondary-dark) !important;
+    border-top-color: var(--border-dark);
     background: transparent !important;
 }
 
 body.dark-mode .grothendieck-text footer {
-    color: #94a3b8 !important;
+    color: var(--text-tertiary-dark) !important;
 }
 
-/* Footer */
+body.dark-mode button:not(.dark-mode-toggle):not(.note-popup-close) {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode button:not(.dark-mode-toggle):not(.note-popup-close):hover {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--accent-dark);
+}
+
+/* Footer en mode sombre */
 body.dark-mode .main-footer {
-    color: #94a3b8 !important;
+    color: var(--text-tertiary-dark);
 }
 
 body.dark-mode .main-footer a {
-    color: #6ba3e8 !important;
+    color: var(--accent-dark);
 }
 
-/* Halos */
+/* Ajuster les halos pour le mode sombre */
 body.dark-mode::before {
-    opacity: 0.4 !important;
+    opacity: 0.4;
 }
 
 body.dark-mode::after {
-    opacity: 0.3 !important;
+    opacity: 0.3;
 }
 
-/* Œil */
+/* Ajuster l'œil en mode sombre */
 body.dark-mode .eye-background {
-    opacity: 0.15 !important;
+    opacity: 0.15;
 }
 
-/* Bouton toggle */
+/* === BOUTON TOGGLE MODE SOMBRE === */
+.dark-mode-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.dark-mode-toggle:hover {
+    background: rgba(74, 144, 226, 0.15);
+    border-color: rgba(74, 144, 226, 0.4);
+    transform: scale(1.05);
+}
+
+.dark-mode-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Icônes soleil et lune */
+.dark-mode-toggle .icon-sun,
+.dark-mode-toggle .icon-moon {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+}
+
+.dark-mode-toggle .icon-sun {
+    opacity: 1;
+}
+
+.dark-mode-toggle .icon-moon {
+    opacity: 0;
+    transform: rotate(180deg);
+}
+
 body.dark-mode .dark-mode-toggle {
-    background: rgba(0, 0, 0, 0.3) !important;
-    border-color: rgba(74, 144, 226, 0.3) !important;
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(74, 144, 226, 0.3);
 }
 
 body.dark-mode .dark-mode-toggle .icon-sun {
-    opacity: 0 !important;
-    transform: rotate(180deg) !important;
+    opacity: 0;
+    transform: rotate(180deg);
 }
 
 body.dark-mode .dark-mode-toggle .icon-moon {
-    opacity: 1 !important;
-    transform: rotate(0deg) !important;
+    opacity: 1;
+    transform: rotate(0deg);
 }
 
-/* Transitions */
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .dark-mode-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+}
+
+/* === TRANSITION DOUCE === */
 body,
 .main-title,
 .subtitle,
 .meta-info,
 a,
-.separator {
-    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease, border-color 0.3s ease !important;
+.separator,
+.eye-background,
+body::before,
+body::after {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                opacity 0.3s ease, 
+                border-color 0.3s ease;
 }
