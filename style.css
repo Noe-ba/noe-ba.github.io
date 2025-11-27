@@ -1010,6 +1010,38 @@ body.dark-mode .output-section:hover * {
     color: #e5e7eb !important;
 }
 
+/* Accordéon Grothendieck (input/output) en mode sombre */
+body.dark-mode .grothendieck-accordion {
+    background: transparent;
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .grothendieck-header {
+    background: transparent;
+}
+
+body.dark-mode .grothendieck-header:hover {
+    background: rgba(30, 41, 59, 0.3);
+}
+
+body.dark-mode .grothendieck-label {
+    color: var(--text-secondary-dark) !important;
+}
+
+body.dark-mode .grothendieck-icon {
+    color: var(--accent-dark);
+}
+
+body.dark-mode .grothendieck-text {
+    color: var(--text-secondary-dark) !important;
+    border-top-color: var(--border-dark);
+    background: transparent !important;
+}
+
+body.dark-mode .grothendieck-text footer {
+    color: var(--text-tertiary-dark) !important;
+}
+
 body.dark-mode button:not(.dark-mode-toggle):not(.note-popup-close) {
     background: rgba(30, 41, 59, 0.6);
     border-color: var(--border-dark);
