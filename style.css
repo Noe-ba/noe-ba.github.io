@@ -798,18 +798,22 @@ hr {
 /* === VARIABLES POUR MODE SOMBRE === */
 :root {
     --bg-light: #fafafa;
+    --bg-secondary-light: #ffffff;
     --text-primary-light: #1a1a1a;
     --text-secondary-light: #4a5568;
     --text-tertiary-light: #718096;
     --border-light: rgba(74, 144, 226, 0.15);
     --accent-light: #4a90e2;
+    --shadow-light: rgba(0, 0, 0, 0.1);
     
     --bg-dark: #0f1729;
+    --bg-secondary-dark: rgba(30, 41, 59, 0.6);
     --text-primary-dark: #e5e7eb;
     --text-secondary-dark: #cbd5e1;
     --text-tertiary-dark: #94a3b8;
     --border-dark: rgba(74, 144, 226, 0.25);
     --accent-dark: #6ba3e8;
+    --shadow-dark: rgba(0, 0, 0, 0.3);
 }
 
 /* === MODE SOMBRE ACTIF === */
@@ -875,6 +879,35 @@ body.dark-mode pre {
 
 body.dark-mode figcaption {
     color: var(--text-tertiary-dark);
+}
+
+/* Sommaire en mode sombre */
+body.dark-mode .sommaire-list li a {
+    background: var(--bg-secondary-dark);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .sommaire-list li a:hover {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--accent-dark);
+    box-shadow: 0 2px 12px var(--shadow-dark);
+}
+
+body.dark-mode .sommaire-list .title {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .sommaire-list .number {
+    color: var(--text-tertiary-dark);
+}
+
+body.dark-mode .sommaire-list .arrow {
+    color: var(--accent-dark);
+}
+
+body.dark-mode .sommaire h2 {
+    color: var(--text-secondary-dark);
 }
 
 /* Ajuster les halos pour le mode sombre */
