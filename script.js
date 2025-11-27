@@ -49,3 +49,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 });
+
+/* ========================================
+   MODE SOMBRE - JAVASCRIPT
+   À ajouter à la fin de script.js
+   ======================================== */
+
+// Fonction pour initialiser le mode sombre
+function initDarkMode() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    
+    // Si le bouton n'existe pas (page d'accueil), ne rien faire
+    if (!darkModeToggle) return;
+    
+    // Vérifier si l'utilisateur a déjà une préférence sauvegardée
+    const savedMode = localStorage.getItem('darkMode');
+    
+    // Appliquer le mode sauvegardé au chargement
+    if (savedMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+    
+    // Écouteur d'événement sur le bouton
+    darkModeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        
+        // Sauvegarder la préférence
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+}
+
+// Initialiser au chargement de la page
+document.addEventListener('DOMContentLoaded', initDarkMode);
