@@ -960,16 +960,16 @@ body.dark-mode textarea,
 body.dark-mode select,
 body.dark-mode .input-section,
 body.dark-mode .output-section {
-    background: rgba(30, 41, 59, 0.6) !important;
+    background: transparent !important;
     border-color: var(--border-dark) !important;
-    color: var(--text-primary-dark) !important;
+    color: #e5e7eb !important;
 }
 
 body.dark-mode input:focus,
 body.dark-mode textarea:focus,
 body.dark-mode select:focus {
     border-color: var(--accent-dark) !important;
-    background: rgba(30, 41, 59, 0.8) !important;
+    background: transparent !important;
 }
 
 body.dark-mode input::placeholder,
@@ -982,12 +982,13 @@ body.dark-mode .output-label {
     color: var(--text-secondary-dark) !important;
 }
 
-/* Forcer la couleur du texte dans les zones de texte */
-body.dark-mode .output-section p,
-body.dark-mode .output-section div,
-body.dark-mode .input-section p,
-body.dark-mode .input-section div {
-    color: var(--text-primary-dark) !important;
+/* Forcer la couleur du texte dans les zones de texte - même couleur que le texte normal */
+body.dark-mode .output-section,
+body.dark-mode .output-section *,
+body.dark-mode .input-section,
+body.dark-mode .input-section * {
+    color: #e5e7eb !important;
+    background: transparent !important;
 }
 
 /* Classes spécifiques pour entrée/sortie */
@@ -995,9 +996,18 @@ body.dark-mode .terminal-output,
 body.dark-mode .terminal-input,
 body.dark-mode .console-output,
 body.dark-mode .code-output {
-    background: rgba(30, 41, 59, 0.8) !important;
+    background: transparent !important;
     color: #e5e7eb !important;
     border-color: var(--border-dark) !important;
+}
+
+/* Enlever tout effet de survol sur les zones input/output */
+body.dark-mode .input-section:hover,
+body.dark-mode .output-section:hover,
+body.dark-mode .input-section:hover *,
+body.dark-mode .output-section:hover * {
+    background: transparent !important;
+    color: #e5e7eb !important;
 }
 
 body.dark-mode button:not(.dark-mode-toggle):not(.note-popup-close) {
