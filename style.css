@@ -49,7 +49,7 @@ body {
     opacity: 0.25;
     background-image: url('images/Pour_QR_code.png');
     background-size: 150%;
-    background-position: 65% 48%;
+    background-position: 62% 45%;
     background-repeat: no-repeat;
     animation: eyeBreath 8s ease-in-out infinite;
 }
