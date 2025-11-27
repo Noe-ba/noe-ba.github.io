@@ -66,47 +66,37 @@ body {
 /* === PUPILLE CLIQUABLE === */
 .pupil-trigger {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid rgba(74, 144, 226, 0.3);
-    background: radial-gradient(circle, rgba(74, 144, 226, 0.05) 0%, transparent 70%);
+    transition: all 0.4s ease;
 }
 
 .pupil-trigger::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(74, 144, 226, 0.15), transparent 70%);
-    opacity: 0.5;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    animation: pulse 3s ease-in-out infinite;
+    background: rgba(74, 144, 226, 0);
+    transition: background 0.4s ease;
+    pointer-events: none;
 }
 
 .pupil-trigger:hover::before {
-    opacity: 0.8;
-    animation: pulse 1.5s ease-in-out infinite;
+    background: rgba(74, 144, 226, 0.02);
 }
 
 @keyframes pulse {
     0%, 100% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.5;
     }
     50% {
-        transform: translate(-50%, -50%) scale(1.1);
-        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.2);
     }
 }
 
@@ -117,26 +107,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1rem;
-    font-weight: 400;
-    color: var(--accent);
+    font-weight: 300;
+    color: var(--text-tertiary);
     white-space: nowrap;
-    opacity: 0.9;
-    transition: all 0.3s ease;
+    opacity: 0.4;
+    transition: opacity 0.4s ease;
     pointer-events: none;
-    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
 }
 
 .pupil-trigger:hover::after {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.05);
-    text-shadow: 0 0 20px rgba(74, 144, 226, 0.8);
-}
-
-.pupil-trigger:hover {
-    transform: translate(-50%, -50%) scale(1.05);
-    border-color: rgba(74, 144, 226, 0.6);
-    background: radial-gradient(circle, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
+    opacity: 0.8;
 }
 
 /* === HALO LUMINEUX ANIMÉ === */
