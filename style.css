@@ -782,74 +782,83 @@ hr {
 
 /* === MOBILE UNIQUEMENT (pas tablette) === */
 @media (max-width: 480px) {
-    /* Décaler l'œil vers la gauche sur mobile UNIQUEMENT */
+    /* Décaler l'œil BEAUCOUP vers la gauche sur mobile UNIQUEMENT */
     .eye-background {
-        background-position: 20% center;
+        background-position: 5% center !important;
     }
 }
 
 /* === FORCER LES COULEURS EN MODE CLAIR (éviter le bug visuel sur mobile) === */
 /* Note: Ces règles corrigent un bug d'affichage où le texte apparaît grisé en mode clair sur mobile */
 @media (max-width: 768px) {
-    /* === FOND ET TEXTE GÉNÉRAL === */
-    body:not(.dark-mode) {
+    /* === FOND ET TEXTE GÉNÉRAL - ULTRA FORCÉ === */
+    html body:not(.dark-mode) {
         background: #fafafa !important;
         color: #1a1a1a !important;
     }
     
+    html body:not(.dark-mode) * {
+        transition: none !important;
+    }
+    
     /* === TITRES === */
-    body:not(.dark-mode) .main-title,
-    body:not(.dark-mode) h1,
-    body:not(.dark-mode) h2,
-    body:not(.dark-mode) h3 {
+    html body:not(.dark-mode) .main-title,
+    html body:not(.dark-mode) h1,
+    html body:not(.dark-mode) h2,
+    html body:not(.dark-mode) h3 {
         color: #1a1a1a !important;
     }
 
     /* === TEXTES === */
-    body:not(.dark-mode) .subtitle,
-    body:not(.dark-mode) .meta-info,
-    body:not(.dark-mode) .meta-info *,
-    body:not(.dark-mode) p {
+    html body:not(.dark-mode) .subtitle,
+    html body:not(.dark-mode) .meta-info,
+    html body:not(.dark-mode) .meta-info *,
+    html body:not(.dark-mode) p {
         color: #666666 !important;
     }
     
-    body:not(.dark-mode) .author {
+    html body:not(.dark-mode) .author {
         color: #666666 !important;
     }
     
-    body:not(.dark-mode) .institution,
-    body:not(.dark-mode) .direction {
+    html body:not(.dark-mode) .institution,
+    html body:not(.dark-mode) .direction {
         color: #999999 !important;
     }
 
-    body:not(.dark-mode) .click-invitation {
+    html body:not(.dark-mode) .click-invitation {
         color: #999999 !important;
     }
     
-    /* === SOMMAIRE EN MODE CLAIR === */
-    body:not(.dark-mode) .sommaire h2 {
+    /* === SOMMAIRE EN MODE CLAIR - ULTRA FORCÉ === */
+    html body:not(.dark-mode) .sommaire,
+    html body:not(.dark-mode) .sommaire * {
+        transition: none !important;
+    }
+    
+    html body:not(.dark-mode) .sommaire h2 {
         color: #666666 !important;
     }
     
-    body:not(.dark-mode) .sommaire-list li a {
+    html body:not(.dark-mode) .sommaire-list li a {
         background: rgba(255, 255, 255, 0.4) !important;
         border-color: #e8e8e8 !important;
         color: #1a1a1a !important;
     }
     
-    body:not(.dark-mode) .sommaire-list .title {
+    html body:not(.dark-mode) .sommaire-list .title {
         color: #1a1a1a !important;
     }
     
-    body:not(.dark-mode) .sommaire-list .number {
+    html body:not(.dark-mode) .sommaire-list .number {
         color: #999999 !important;
     }
     
-    body:not(.dark-mode) .sommaire-list .arrow {
+    html body:not(.dark-mode) .sommaire-list .arrow {
         color: #4a90e2 !important;
     }
     
-    body:not(.dark-mode) .sommaire-list li a:hover {
+    html body:not(.dark-mode) .sommaire-list li a:hover {
         background: rgba(255, 255, 255, 0.6) !important;
         border-color: #4a90e2 !important;
     }
@@ -987,29 +996,62 @@ body.dark-mode .sommaire h2 {
 
 /* FORÇAGE SOMMAIRE MODE SOMBRE SUR MOBILE (éviter bug lors du toggle) */
 @media (max-width: 768px) {
-    body.dark-mode .sommaire h2 {
+    /* === MODE SOMBRE - ULTRA FORCÉ === */
+    html body.dark-mode {
+        background: #0f1729 !important;
+        color: #e5e7eb !important;
+    }
+    
+    html body.dark-mode * {
+        transition: none !important;
+    }
+    
+    html body.dark-mode .main-title,
+    html body.dark-mode h1,
+    html body.dark-mode h2,
+    html body.dark-mode h3 {
+        color: #e5e7eb !important;
+    }
+    
+    html body.dark-mode .subtitle,
+    html body.dark-mode .meta-info,
+    html body.dark-mode .meta-info *,
+    html body.dark-mode p {
         color: #cbd5e1 !important;
     }
     
-    body.dark-mode .sommaire-list li a {
+    html body.dark-mode .click-invitation {
+        color: #94a3b8 !important;
+    }
+    
+    html body.dark-mode .sommaire,
+    html body.dark-mode .sommaire * {
+        transition: none !important;
+    }
+    
+    html body.dark-mode .sommaire h2 {
+        color: #cbd5e1 !important;
+    }
+    
+    html body.dark-mode .sommaire-list li a {
         background: rgba(30, 41, 59, 0.6) !important;
         border-color: rgba(74, 144, 226, 0.25) !important;
         color: #e5e7eb !important;
     }
     
-    body.dark-mode .sommaire-list .title {
+    html body.dark-mode .sommaire-list .title {
         color: #e5e7eb !important;
     }
     
-    body.dark-mode .sommaire-list .number {
+    html body.dark-mode .sommaire-list .number {
         color: #94a3b8 !important;
     }
     
-    body.dark-mode .sommaire-list .arrow {
+    html body.dark-mode .sommaire-list .arrow {
         color: #6ba3e8 !important;
     }
     
-    body.dark-mode .sommaire-list li a:hover {
+    html body.dark-mode .sommaire-list li a:hover {
         background: rgba(30, 41, 59, 0.8) !important;
         border-color: #6ba3e8 !important;
     }
