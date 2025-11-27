@@ -910,6 +910,79 @@ body.dark-mode .sommaire h2 {
     color: var(--text-secondary-dark);
 }
 
+/* Notes de bas de page en mode sombre */
+body.dark-mode .note-popup {
+    background: rgba(15, 23, 42, 0.98);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .note-popup-content {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .note-popup-close {
+    color: var(--text-primary-dark);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .note-popup-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .note-ref {
+    color: var(--accent-dark);
+    background: rgba(74, 144, 226, 0.1);
+}
+
+body.dark-mode .note-ref:hover {
+    background: rgba(74, 144, 226, 0.2);
+}
+
+/* Navigation entre parties en mode sombre */
+body.dark-mode .nav-partie a,
+body.dark-mode .nav-top a {
+    background: var(--bg-secondary-dark);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .nav-partie a:hover,
+body.dark-mode .nav-top a:hover {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--accent-dark);
+    color: var(--accent-dark);
+}
+
+/* Inputs et outputs en mode sombre */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: var(--accent-dark);
+    background: rgba(30, 41, 59, 0.8);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: var(--text-tertiary-dark);
+}
+
+/* Footer en mode sombre */
+body.dark-mode .main-footer {
+    color: var(--text-tertiary-dark);
+}
+
+body.dark-mode .main-footer a {
+    color: var(--accent-dark);
+}
+
 /* Ajuster les halos pour le mode sombre */
 body.dark-mode::before {
     opacity: 0.4;
