@@ -6,7 +6,7 @@
 /* === VARIABLES === */
 :root {
     --bg-primary: #fafafa;
-    --bg-secondary: #ffffff;
+    --bg-secondary: rgba(255, 255, 255, 0.4);
     --text-primary: #1a1a1a;
     --text-secondary: #666666;
     --text-tertiary: #999999;
@@ -791,6 +791,7 @@ hr {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 /* ========================================
    MODE SOMBRE - CSS À AJOUTER À style.css
    ======================================== */
@@ -956,7 +957,9 @@ body.dark-mode .nav-top a:hover {
 /* Inputs et outputs en mode sombre */
 body.dark-mode input,
 body.dark-mode textarea,
-body.dark-mode select {
+body.dark-mode select,
+body.dark-mode .input-section,
+body.dark-mode .output-section {
     background: rgba(30, 41, 59, 0.6);
     border-color: var(--border-dark);
     color: var(--text-primary-dark);
@@ -972,6 +975,22 @@ body.dark-mode select:focus {
 body.dark-mode input::placeholder,
 body.dark-mode textarea::placeholder {
     color: var(--text-tertiary-dark);
+}
+
+body.dark-mode .input-label,
+body.dark-mode .output-label {
+    color: var(--text-secondary-dark);
+}
+
+body.dark-mode button:not(.dark-mode-toggle):not(.note-popup-close) {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode button:not(.dark-mode-toggle):not(.note-popup-close):hover {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--accent-dark);
 }
 
 /* Footer en mode sombre */
