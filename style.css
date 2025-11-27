@@ -47,7 +47,7 @@ body {
     height: 100%;
     z-index: -2;
     opacity: 0.25;
-    background-image: url('images/Pour_QR_code.webp');
+    background-image: url('images/Pour_QR_code_optimized.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -780,6 +780,35 @@ hr {
     }
 }
 
+/* === MOBILE UNIQUEMENT (pas tablette) === */
+@media (max-width: 480px) {
+    /* Décaler l'œil vers la gauche sur mobile UNIQUEMENT */
+    .eye-background {
+        background-position: 35% center;
+    }
+}
+
+/* === FORCER LES COULEURS EN MODE CLAIR (éviter le bug visuel sur mobile) === */
+/* Note: Ces règles corrigent un bug d'affichage où le texte apparaît grisé en mode clair sur mobile */
+@media (max-width: 768px) {
+    body:not(.dark-mode) .main-title,
+    body:not(.dark-mode) h1,
+    body:not(.dark-mode) h2,
+    body:not(.dark-mode) h3 {
+        color: var(--text-primary) !important;
+    }
+
+    body:not(.dark-mode) .subtitle,
+    body:not(.dark-mode) .meta-info,
+    body:not(.dark-mode) p {
+        color: var(--text-secondary) !important;
+    }
+
+    body:not(.dark-mode) .click-invitation {
+        color: var(--text-tertiary) !important;
+    }
+}
+
 /* === AMÉLIORATION DE LA LISIBILITÉ === */
 ::selection {
     background: rgba(74, 144, 226, 0.15);
@@ -791,7 +820,6 @@ hr {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 /* ========================================
    MODE SOMBRE - CSS À AJOUTER À style.css
    ======================================== */
