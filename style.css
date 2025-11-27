@@ -852,6 +852,31 @@ body.dark-mode a:hover {
     color: #8bb9ed;
 }
 
+body.dark-mode em,
+body.dark-mode i {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode strong,
+body.dark-mode b {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode blockquote {
+    color: var(--text-secondary-dark);
+    border-left-color: var(--border-dark);
+}
+
+body.dark-mode code,
+body.dark-mode pre {
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode figcaption {
+    color: var(--text-tertiary-dark);
+}
+
 /* Ajuster les halos pour le mode sombre */
 body.dark-mode::before {
     opacity: 0.4;
