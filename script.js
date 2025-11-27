@@ -55,33 +55,36 @@ document.addEventListener('DOMContentLoaded', function() {
    À ajouter à la fin de script.js
    ======================================== */
 
-// Fonction pour initialiser le mode sombre
-function initDarkMode() {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    
-    // Si le bouton n'existe pas (page d'accueil), ne rien faire
-    if (!darkModeToggle) return;
-    
-    // Vérifier si l'utilisateur a déjà une préférence sauvegardée
+// Initialiser le mode sombre dès que possible
+(function() {
+    // Appliquer le mode sauvegardé AVANT le chargement pour éviter le flash
     const savedMode = localStorage.getItem('darkMode');
-    
-    // Appliquer le mode sauvegardé au chargement
     if (savedMode === 'enabled') {
+        document.documentElement.classList.add('dark-mode');
         document.body.classList.add('dark-mode');
     }
+})();
+
+// Fonction pour basculer le mode sombre
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
     
-    // Écouteur d'événement sur le bouton
-    darkModeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-        
-        // Sauvegarder la préférence
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-        }
-    });
+    // Sauvegarder la préférence
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
 }
 
-// Initialiser au chargement de la page
-document.addEventListener('DOMContentLoaded', initDarkMode);
+// Attacher l'événement au bouton quand la page est chargée
+window.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        console.log('Dark mode toggle initialized'); // Pour debug
+    } else {
+        console.log('Dark mode toggle button not found'); // Pour debug
+    }
+});
