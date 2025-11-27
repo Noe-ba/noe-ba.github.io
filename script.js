@@ -2,8 +2,30 @@
 // SCRIPT.JS - Interactivité page d'accueil
 // ============================================
 
+// MODE SOMBRE - Initialiser AVANT DOMContentLoaded pour éviter le flash
+(function() {
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+})();
+
+// Fonction pour basculer le mode sombre
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    
+    // Sauvegarder la préférence
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
+}
+
+// TOUT LE CODE S'EXÉCUTE AU CHARGEMENT
 document.addEventListener('DOMContentLoaded', function() {
     
+    // ===== PARTIE 1 : SOMMAIRE (ne pas toucher, fonctionne bien) =====
     const pupilTrigger = document.getElementById('pupilTrigger');
     const sommaire = document.getElementById('sommaire');
     
@@ -48,43 +70,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
     
-});
-
-/* ========================================
-   MODE SOMBRE - JAVASCRIPT
-   À ajouter à la fin de script.js
-   ======================================== */
-
-// Initialiser le mode sombre dès que possible
-(function() {
-    // Appliquer le mode sauvegardé AVANT le chargement pour éviter le flash
-    const savedMode = localStorage.getItem('darkMode');
-    if (savedMode === 'enabled') {
-        document.documentElement.classList.add('dark-mode');
-        document.body.classList.add('dark-mode');
-    }
-})();
-
-// Fonction pour basculer le mode sombre
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    
-    // Sauvegarder la préférence
-    if (document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-    } else {
-        localStorage.setItem('darkMode', 'disabled');
-    }
-}
-
-// Attacher l'événement au bouton quand la page est chargée
-window.addEventListener('DOMContentLoaded', function() {
+    // ===== PARTIE 2 : MODE SOMBRE =====
     const darkModeToggle = document.getElementById('darkModeToggle');
     
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', toggleDarkMode);
-        console.log('Dark mode toggle initialized'); // Pour debug
+        console.log('Dark mode toggle initialized');
     } else {
-        console.log('Dark mode toggle button not found'); // Pour debug
+        console.log('Dark mode toggle button not found');
     }
+    
 });
