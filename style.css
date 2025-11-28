@@ -1267,3 +1267,128 @@ body::after {
                 opacity 0.3s ease, 
                 border-color 0.3s ease;
 }
+
+/* ============================================================
+   JUSTIFICATION DU TEXTE SANS LÉZARDES
+   À ajouter à la fin de votre style.css
+   ============================================================ */
+
+/* Justification des paragraphes avec césure automatique */
+p {
+    text-align: justify;
+    text-justify: inter-word; /* Espacement entre mots (pas entre lettres) */
+    hyphens: auto; /* Césure automatique pour éviter les trous */
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+/* Optimiser l'espacement pour éviter les lézardes */
+p {
+    word-spacing: -0.05em; /* Légère réduction des espaces */
+    letter-spacing: 0.01em; /* Très légère expansion des lettres */
+}
+
+/* Dernière ligne à gauche (pas justifiée) */
+p {
+    text-align-last: left;
+}
+
+/* Améliorer la qualité typographique */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility; /* Meilleur rendu typo */
+}
+
+/* Largeur optimale pour éviter les lézardes (déjà bon : 720px) */
+.container {
+    max-width: 720px; /* Entre 60-75 caractères par ligne = optimal */
+}
+
+/* Titres et éléments courts : PAS de justification */
+h1, h2, h3, h4, h5, h6,
+.main-title,
+.subtitle,
+.meta-info,
+.click-invitation,
+.nav-top,
+.main-footer {
+    text-align: left; /* ou center selon vos besoins actuels */
+    hyphens: none;
+}
+
+/* Listes : alignement à gauche */
+ul, ol, li {
+    text-align: left;
+    hyphens: none;
+}
+
+/* Citations : justifiées aussi */
+blockquote {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+/* Notes de bas de page : justifiées */
+.note-popup-content {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+/* ============================================================
+   OPTIMISATIONS SUPPLÉMENTAIRES
+   ============================================================ */
+
+/* Éviter les mots orphelins en fin de ligne */
+p {
+    orphans: 2; /* Minimum 2 lignes en bas de colonne */
+    widows: 2;  /* Minimum 2 lignes en haut de colonne */
+}
+
+/* Améliorer la coupure des mots longs */
+p {
+    overflow-wrap: break-word; /* Coupe les mots trop longs */
+    word-wrap: break-word;
+}
+
+/* Sur mobile : justification peut être désactivée (optionnel) */
+@media (max-width: 480px) {
+    p {
+        /* Option 1 : Garder la justification */
+        text-align: justify;
+        
+        /* Option 2 : Passer en fer à gauche sur très petit écran */
+        /* text-align: left; */
+    }
+}
+
+/* ============================================================
+   NOTES IMPORTANTES
+   ============================================================ */
+
+/*
+POURQUOI ÇA ÉVITE LES LÉZARDES :
+
+1. hyphens: auto
+   → Coupe les mots longs pour éviter les grands espaces
+
+2. word-spacing: -0.05em
+   → Réduit légèrement les espaces entre mots
+
+3. letter-spacing: 0.01em
+   → Compense en élargissant très légèrement les lettres
+
+4. text-justify: inter-word
+   → Force la justification par les espaces (pas les lettres)
+
+5. max-width: 720px
+   → Largeur optimale (60-75 caractères/ligne)
+
+6. text-rendering: optimizeLegibility
+   → Meilleur rendu des espacements
+
+RÉSULTAT : Justification propre sans "rivières" verticales
+*/
