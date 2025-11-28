@@ -1269,44 +1269,11 @@ body::after {
 }
 
 /* ============================================================
-   JUSTIFICATION DU TEXTE - VERSION FINALE
-   Page d'accueil EXCLUE avec valeurs explicites
+   JUSTIFICATION DU TEXTE - SOLUTION ULTRA CIBLÉE
+   On exclut SPÉCIFIQUEMENT chaque élément de la page d'accueil
    ============================================================ */
 
-/* PAGE D'ACCUEIL : Forcer les valeurs d'origine explicitement */
-.main-header {
-    text-align: center !important;
-}
-
-.main-title {
-    text-align: center !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-}
-
-.subtitle {
-    text-align: center !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-}
-
-.meta-info,
-.meta-info p,
-.meta-info * {
-    text-align: center !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-}
-
-.click-invitation {
-    text-align: center !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-}
-
-/* PAGES DE CONTENU : Justification propre sans lézardes */
-
-/* Justification des paragraphes avec césure automatique */
+/* RÈGLE GÉNÉRALE : Justifier tous les paragraphes */
 .container p {
     text-align: justify;
     text-justify: inter-word;
@@ -1317,23 +1284,62 @@ body::after {
     word-spacing: -0.05em;
     letter-spacing: 0.01em;
     text-align-last: left;
+    orphans: 2;
+    widows: 2;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-/* MAIS pas les paragraphes de la page d'accueil */
-.main-header p,
+/* EXCEPTIONS SPÉCIFIQUES : Page d'accueil */
+
+/* Sous-titre (c'est un <p>) */
+p.subtitle {
+    text-align: center !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+}
+
+/* Texte "Cliquer pour entrer" (c'est un <p>) */
+p.click-invitation {
+    text-align: center !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+}
+
+/* Métadonnées (ce sont des <p>) */
 .meta-info p {
+    text-align: center !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+}
+
+/* Footer (c'est un <p>) */
+.main-footer p {
     text-align: center !important;
     hyphens: none !important;
     -webkit-hyphens: none !important;
 }
 
-/* Titres : alignement à gauche */
+/* Tous les titres H1, H2, etc. : à gauche */
 h1, h2, h3, h4, h5, h6 {
-    text-align: left;
-    hyphens: none;
+    text-align: left !important;
+    hyphens: none !important;
 }
 
-/* Listes : alignement à gauche */
+/* MAIS le H1 de la page d'accueil : centré */
+.main-title {
+    text-align: center !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+}
+
+/* Listes : à gauche */
 ul, ol, li {
     text-align: left;
     hyphens: none;
@@ -1353,7 +1359,7 @@ blockquote {
     -webkit-hyphens: auto;
 }
 
-/* Navigation : alignement par défaut */
+/* Navigation */
 .nav-top {
     text-align: center;
 }
@@ -1362,39 +1368,26 @@ blockquote {
     text-align: left;
 }
 
-.main-footer {
-    text-align: center;
-}
-
-/* Éviter les mots orphelins */
-.container p {
-    orphans: 2;
-    widows: 2;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
-
 /* Améliorer la qualité typographique */
 body {
     text-rendering: optimizeLegibility;
 }
 
-/* Sur mobile : justification reste active */
+/* Sur mobile : mêmes règles */
 @media (max-width: 480px) {
     .container p {
         text-align: justify;
-        /* Décommentez pour désactiver sur mobile :
-        text-align: left; */
     }
     
-    /* Page d'accueil reste centrée sur mobile */
-    .main-header,
-    .main-title,
-    .subtitle,
-    .meta-info,
-    .meta-info *,
-    .click-invitation {
+    /* Exceptions page d'accueil */
+    p.subtitle,
+    p.click-invitation,
+    .meta-info p,
+    .main-footer p {
+        text-align: center !important;
+    }
+    
+    .main-title {
         text-align: center !important;
     }
 }
-
