@@ -1294,6 +1294,10 @@ body::after {
 }
 
 /* EXCEPTIONS : Spécificité PLUS HAUTE */
+.main-header,
+.main-header *,
+.main-header h1,
+.main-header p,
 .container p.subtitle,
 .container p.click-invitation,
 .container .meta-info p,
@@ -1378,14 +1382,4 @@ body {
     .container p {
         text-align: justify;
     }
-}
-
-/* === FORCER LE CENTRAGE DU HEADER === */
-.main-header,
-.main-header *,
-.main-title,
-.subtitle,
-.meta-info,
-.meta-info * {
-    text-align: center !important;
 }
