@@ -1270,10 +1270,10 @@ body::after {
 
 
 /* ============================================================
-   JUSTIFICATION DU TEXTE - VERSION QUI MARCHE
+   JUSTIFICATION DU TEXTE - SPÉCIFICITÉ MAXIMALE
    ============================================================ */
 
-/* Justifier tous les paragraphes par défaut */
+/* Justifier tous les paragraphes */
 .container p {
     text-align: justify;
     text-justify: inter-word;
@@ -1290,11 +1290,11 @@ body::after {
     word-wrap: break-word;
 }
 
-/* EXCEPTIONS : Page d'accueil - NE PAS justifier */
-p.subtitle,
-p.click-invitation,
-.meta-info p,
-.main-footer p {
+/* EXCEPTIONS : Spécificité PLUS HAUTE */
+.container p.subtitle,
+.container p.click-invitation,
+.container .meta-info p,
+.container .main-footer p {
     text-align: center !important;
     hyphens: none !important;
     -webkit-hyphens: none !important;
@@ -1302,14 +1302,15 @@ p.click-invitation,
     letter-spacing: normal !important;
 }
 
-/* Titres : à gauche sauf le titre principal */
+.container .main-title {
+    text-align: center !important;
+    hyphens: none !important;
+}
+
+/* Titres : à gauche */
 h1, h2, h3, h4, h5, h6 {
     text-align: left;
     hyphens: none;
-}
-
-.main-title {
-    text-align: center !important;
 }
 
 /* Listes : à gauche */
@@ -1348,18 +1349,18 @@ body {
 
 /* Mobile */
 @media (max-width: 480px) {
+    .container p.subtitle,
+    .container p.click-invitation,
+    .container .meta-info p,
+    .container .main-footer p {
+        text-align: center !important;
+    }
+    
+    .container .main-title {
+        text-align: center !important;
+    }
+    
     .container p {
         text-align: justify;
-    }
-    
-    p.subtitle,
-    p.click-invitation,
-    .meta-info p,
-    .main-footer p {
-        text-align: center !important;
-    }
-    
-    .main-title {
-        text-align: center !important;
     }
 }
