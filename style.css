@@ -780,10 +780,78 @@ hr {
     }
 }
 
-/* === ŒIL DÉCALÉ SUR MOBILE === */
+/* === MOBILE UNIQUEMENT (pas tablette) === */
 @media (max-width: 480px) {
+    /* Décaler l'œil vers la gauche sur mobile UNIQUEMENT */
     .eye-background {
-        background-position: 5% center !important;
+        background-position: 20% center;
+    }
+}
+
+/* === FORCER LES COULEURS EN MODE CLAIR (éviter le bug visuel sur mobile) === */
+/* Note: Ces règles corrigent un bug d'affichage où le texte apparaît grisé en mode clair sur mobile */
+@media (max-width: 768px) {
+    /* === FOND ET TEXTE GÉNÉRAL === */
+    body:not(.dark-mode) {
+        background: #fafafa !important;
+        color: #1a1a1a !important;
+    }
+    
+    /* === TITRES === */
+    body:not(.dark-mode) .main-title,
+    body:not(.dark-mode) h1,
+    body:not(.dark-mode) h2,
+    body:not(.dark-mode) h3 {
+        color: #1a1a1a !important;
+    }
+
+    /* === TEXTES === */
+    body:not(.dark-mode) .subtitle,
+    body:not(.dark-mode) .meta-info,
+    body:not(.dark-mode) .meta-info *,
+    body:not(.dark-mode) p {
+        color: #666666 !important;
+    }
+    
+    body:not(.dark-mode) .author {
+        color: #666666 !important;
+    }
+    
+    body:not(.dark-mode) .institution,
+    body:not(.dark-mode) .direction {
+        color: #999999 !important;
+    }
+
+    body:not(.dark-mode) .click-invitation {
+        color: #999999 !important;
+    }
+    
+    /* === SOMMAIRE EN MODE CLAIR === */
+    body:not(.dark-mode) .sommaire h2 {
+        color: #666666 !important;
+    }
+    
+    body:not(.dark-mode) .sommaire-list li a {
+        background: rgba(255, 255, 255, 0.4) !important;
+        border-color: #e8e8e8 !important;
+        color: #1a1a1a !important;
+    }
+    
+    body:not(.dark-mode) .sommaire-list .title {
+        color: #1a1a1a !important;
+    }
+    
+    body:not(.dark-mode) .sommaire-list .number {
+        color: #999999 !important;
+    }
+    
+    body:not(.dark-mode) .sommaire-list .arrow {
+        color: #4a90e2 !important;
+    }
+    
+    body:not(.dark-mode) .sommaire-list li a:hover {
+        background: rgba(255, 255, 255, 0.6) !important;
+        border-color: #4a90e2 !important;
     }
 }
 
@@ -798,12 +866,321 @@ hr {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+/* ========================================
+   MODE SOMBRE - CSS À AJOUTER À style.css
+   ======================================== */
 
-/* ============================================================
-   MODE SOMBRE via data-theme
-   ============================================================ */
+/* === VARIABLES POUR MODE SOMBRE === */
+:root {
+    --bg-light: #fafafa;
+    --bg-secondary-light: #ffffff;
+    --text-primary-light: #1a1a1a;
+    --text-secondary-light: #4a5568;
+    --text-tertiary-light: #718096;
+    --border-light: rgba(74, 144, 226, 0.15);
+    --accent-light: #4a90e2;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    
+    --bg-dark: #0f1729;
+    --bg-secondary-dark: rgba(30, 41, 59, 0.6);
+    --text-primary-dark: #e5e7eb;
+    --text-secondary-dark: #cbd5e1;
+    --text-tertiary-dark: #94a3b8;
+    --border-dark: rgba(74, 144, 226, 0.25);
+    --accent-dark: #6ba3e8;
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+}
 
-/* BOUTON TOGGLE MODE SOMBRE */
+/* === MODE SOMBRE ACTIF === */
+body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .main-title,
+body.dark-mode h1 {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .subtitle,
+body.dark-mode h2 {
+    color: var(--text-secondary-dark);
+}
+
+body.dark-mode .meta-info,
+body.dark-mode .author,
+body.dark-mode .institution,
+body.dark-mode .direction,
+body.dark-mode p {
+    color: var(--text-secondary-dark);
+}
+
+body.dark-mode .click-invitation {
+    color: var(--text-tertiary-dark);
+}
+
+body.dark-mode .separator {
+    background: var(--border-dark);
+}
+
+body.dark-mode a {
+    color: var(--accent-dark);
+}
+
+body.dark-mode a:hover {
+    color: #8bb9ed;
+}
+
+body.dark-mode em,
+body.dark-mode i {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode strong,
+body.dark-mode b {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode blockquote {
+    color: var(--text-secondary-dark);
+    border-left-color: var(--border-dark);
+}
+
+body.dark-mode code,
+body.dark-mode pre {
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode figcaption {
+    color: var(--text-tertiary-dark);
+}
+
+/* Sommaire en mode sombre */
+body.dark-mode .sommaire-list li a {
+    background: var(--bg-secondary-dark);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .sommaire-list li a:hover {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--accent-dark);
+    box-shadow: 0 2px 12px var(--shadow-dark);
+}
+
+body.dark-mode .sommaire-list .title {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .sommaire-list .number {
+    color: var(--text-tertiary-dark);
+}
+
+body.dark-mode .sommaire-list .arrow {
+    color: var(--accent-dark);
+}
+
+body.dark-mode .sommaire h2 {
+    color: var(--text-secondary-dark);
+}
+
+/* FORÇAGE SOMMAIRE MODE SOMBRE SUR MOBILE (éviter bug lors du toggle) */
+@media (max-width: 768px) {
+    body.dark-mode .sommaire h2 {
+        color: #cbd5e1 !important;
+    }
+    
+    body.dark-mode .sommaire-list li a {
+        background: rgba(30, 41, 59, 0.6) !important;
+        border-color: rgba(74, 144, 226, 0.25) !important;
+        color: #e5e7eb !important;
+    }
+    
+    body.dark-mode .sommaire-list .title {
+        color: #e5e7eb !important;
+    }
+    
+    body.dark-mode .sommaire-list .number {
+        color: #94a3b8 !important;
+    }
+    
+    body.dark-mode .sommaire-list .arrow {
+        color: #6ba3e8 !important;
+    }
+    
+    body.dark-mode .sommaire-list li a:hover {
+        background: rgba(30, 41, 59, 0.8) !important;
+        border-color: #6ba3e8 !important;
+    }
+}
+
+/* Notes de bas de page en mode sombre */
+body.dark-mode .note-popup {
+    background: rgba(15, 23, 42, 0.98);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .note-popup-content {
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .note-popup-close {
+    color: var(--text-primary-dark);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .note-popup-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .note-ref {
+    color: var(--accent-dark);
+    background: rgba(74, 144, 226, 0.1);
+}
+
+body.dark-mode .note-ref:hover {
+    background: rgba(74, 144, 226, 0.2);
+}
+
+/* Navigation entre parties en mode sombre */
+body.dark-mode .nav-partie a,
+body.dark-mode .nav-top a {
+    background: var(--bg-secondary-dark);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .nav-partie a:hover,
+body.dark-mode .nav-top a:hover {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--accent-dark);
+    color: var(--accent-dark);
+}
+
+/* Inputs et outputs en mode sombre */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode .input-section,
+body.dark-mode .output-section {
+    background: transparent !important;
+    border-color: var(--border-dark) !important;
+    color: #e5e7eb !important;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: var(--accent-dark) !important;
+    background: transparent !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: var(--text-tertiary-dark) !important;
+}
+
+body.dark-mode .input-label,
+body.dark-mode .output-label {
+    color: var(--text-secondary-dark) !important;
+}
+
+/* Forcer la couleur du texte dans les zones de texte - même couleur que le texte normal */
+body.dark-mode .output-section,
+body.dark-mode .output-section *,
+body.dark-mode .input-section,
+body.dark-mode .input-section * {
+    color: #e5e7eb !important;
+    background: transparent !important;
+}
+
+/* Classes spécifiques pour entrée/sortie */
+body.dark-mode .terminal-output,
+body.dark-mode .terminal-input,
+body.dark-mode .console-output,
+body.dark-mode .code-output {
+    background: transparent !important;
+    color: #e5e7eb !important;
+    border-color: var(--border-dark) !important;
+}
+
+/* Enlever tout effet de survol sur les zones input/output */
+body.dark-mode .input-section:hover,
+body.dark-mode .output-section:hover,
+body.dark-mode .input-section:hover *,
+body.dark-mode .output-section:hover * {
+    background: transparent !important;
+    color: #e5e7eb !important;
+}
+
+/* Accordéon Grothendieck (input/output) en mode sombre */
+body.dark-mode .grothendieck-accordion {
+    background: transparent;
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .grothendieck-header {
+    background: transparent;
+}
+
+body.dark-mode .grothendieck-header:hover {
+    background: rgba(30, 41, 59, 0.3);
+}
+
+body.dark-mode .grothendieck-label {
+    color: var(--text-secondary-dark) !important;
+}
+
+body.dark-mode .grothendieck-icon {
+    color: var(--accent-dark);
+}
+
+body.dark-mode .grothendieck-text {
+    color: var(--text-secondary-dark) !important;
+    border-top-color: var(--border-dark);
+    background: transparent !important;
+}
+
+body.dark-mode .grothendieck-text footer {
+    color: var(--text-tertiary-dark) !important;
+}
+
+body.dark-mode button:not(.dark-mode-toggle):not(.note-popup-close) {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: var(--border-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode button:not(.dark-mode-toggle):not(.note-popup-close):hover {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--accent-dark);
+}
+
+/* Footer en mode sombre */
+body.dark-mode .main-footer {
+    color: var(--text-tertiary-dark);
+}
+
+body.dark-mode .main-footer a {
+    color: var(--accent-dark);
+}
+
+/* Ajuster les halos pour le mode sombre */
+body.dark-mode::before {
+    opacity: 0.4;
+}
+
+body.dark-mode::after {
+    opacity: 0.3;
+}
+
+/* Ajuster l'œil en mode sombre */
+body.dark-mode .eye-background {
+    opacity: 0.15;
+}
+
+/* === BOUTON TOGGLE MODE SOMBRE === */
 .dark-mode-toggle {
     position: fixed;
     top: 2rem;
@@ -849,110 +1226,22 @@ hr {
     transform: rotate(180deg);
 }
 
-/* MODE SOMBRE SUR MOBILE via data-theme */
-@media (max-width: 768px) {
-    html[data-theme="dark"] body {
-        background: #0f1729 !important;
-        color: #e5e7eb !important;
-    }
-    
-    html[data-theme="dark"] .main-title,
-    html[data-theme="dark"] h1,
-    html[data-theme="dark"] h2,
-    html[data-theme="dark"] h3 {
-        color: #e5e7eb !important;
-    }
-    
-    html[data-theme="dark"] .subtitle,
-    html[data-theme="dark"] .meta-info,
-    html[data-theme="dark"] .author,
-    html[data-theme="dark"] .institution,
-    html[data-theme="dark"] .direction,
-    html[data-theme="dark"] p {
-        color: #cbd5e1 !important;
-    }
-    
-    html[data-theme="dark"] .click-invitation {
-        color: #94a3b8 !important;
-    }
-    
-    /* Sommaire en mode sombre */
-    html[data-theme="dark"] .sommaire h2 {
-        color: #cbd5e1 !important;
-    }
-    
-    html[data-theme="dark"] .sommaire-list li a,
-    html[data-theme="dark"] .sommaire.revealed .sommaire-list li a {
-        background: rgba(30, 41, 59, 0.6) !important;
-        border-color: rgba(74, 144, 226, 0.25) !important;
-        color: #e5e7eb !important;
-    }
-    
-    html[data-theme="dark"] .sommaire-list .title,
-    html[data-theme="dark"] .sommaire.revealed .sommaire-list .title {
-        color: #e5e7eb !important;
-    }
-    
-    html[data-theme="dark"] .sommaire-list .number,
-    html[data-theme="dark"] .sommaire.revealed .sommaire-list .number {
-        color: #94a3b8 !important;
-    }
-    
-    html[data-theme="dark"] .sommaire-list .arrow,
-    html[data-theme="dark"] .sommaire.revealed .sommaire-list .arrow {
-        color: #6ba3e8 !important;
-    }
-    
-    html[data-theme="dark"] .sommaire-list li a:hover {
-        background: rgba(30, 41, 59, 0.8) !important;
-        border-color: #6ba3e8 !important;
-    }
-    
-    /* Footer */
-    html[data-theme="dark"] .main-footer,
-    html[data-theme="dark"] .main-footer * {
-        color: #94a3b8 !important;
-    }
-    
-    html[data-theme="dark"] a {
-        color: #6ba3e8 !important;
-    }
-    
-    html[data-theme="dark"] .separator {
-        background: rgba(74, 144, 226, 0.25) !important;
-    }
-    
-    /* Œil et halos */
-    html[data-theme="dark"] .eye-background {
-        opacity: 0.15 !important;
-    }
-    
-    html[data-theme="dark"] body::before {
-        opacity: 0.4 !important;
-    }
-    
-    html[data-theme="dark"] body::after {
-        opacity: 0.3 !important;
-    }
-    
-    /* Bouton toggle */
-    html[data-theme="dark"] .dark-mode-toggle {
-        background: rgba(0, 0, 0, 0.3) !important;
-        border-color: rgba(74, 144, 226, 0.3) !important;
-    }
-    
-    html[data-theme="dark"] .dark-mode-toggle .icon-sun {
-        opacity: 0 !important;
-        transform: rotate(180deg) !important;
-    }
-    
-    html[data-theme="dark"] .dark-mode-toggle .icon-moon {
-        opacity: 1 !important;
-        transform: rotate(0deg) !important;
-    }
+body.dark-mode .dark-mode-toggle {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(74, 144, 226, 0.3);
 }
 
-/* Responsive pour le bouton sur mobile */
+body.dark-mode .dark-mode-toggle .icon-sun {
+    opacity: 0;
+    transform: rotate(180deg);
+}
+
+body.dark-mode .dark-mode-toggle .icon-moon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* Responsive pour mobile */
 @media (max-width: 768px) {
     .dark-mode-toggle {
         top: 1rem;
@@ -963,7 +1252,7 @@ hr {
     }
 }
 
-/* Transitions douces */
+/* === TRANSITION DOUCE === */
 body,
 .main-title,
 .subtitle,
