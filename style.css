@@ -1268,12 +1268,12 @@ body::after {
                 border-color 0.3s ease;
 }
 
+
 /* ============================================================
-   JUSTIFICATION DU TEXTE - SOLUTION ULTRA CIBLÉE
-   On exclut SPÉCIFIQUEMENT chaque élément de la page d'accueil
+   JUSTIFICATION DU TEXTE - VERSION QUI MARCHE
    ============================================================ */
 
-/* RÈGLE GÉNÉRALE : Justifier tous les paragraphes */
+/* Justifier tous les paragraphes par défaut */
 .container p {
     text-align: justify;
     text-justify: inter-word;
@@ -1290,53 +1290,26 @@ body::after {
     word-wrap: break-word;
 }
 
-/* EXCEPTIONS SPÉCIFIQUES : Page d'accueil */
-
-/* Sous-titre (c'est un <p>) */
-p.subtitle {
-    text-align: center !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-    word-spacing: normal !important;
-    letter-spacing: normal !important;
-}
-
-/* Texte "Cliquer pour entrer" (c'est un <p>) */
-p.click-invitation {
-    text-align: center !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-    word-spacing: normal !important;
-    letter-spacing: normal !important;
-}
-
-/* Métadonnées (ce sont des <p>) */
-.meta-info p {
-    text-align: center !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-    word-spacing: normal !important;
-    letter-spacing: normal !important;
-}
-
-/* Footer (c'est un <p>) */
+/* EXCEPTIONS : Page d'accueil - NE PAS justifier */
+p.subtitle,
+p.click-invitation,
+.meta-info p,
 .main-footer p {
     text-align: center !important;
     hyphens: none !important;
     -webkit-hyphens: none !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
 }
 
-/* Tous les titres H1, H2, etc. : à gauche */
+/* Titres : à gauche sauf le titre principal */
 h1, h2, h3, h4, h5, h6 {
-    text-align: left !important;
-    hyphens: none !important;
+    text-align: left;
+    hyphens: none;
 }
 
-/* MAIS le H1 de la page d'accueil : centré */
 .main-title {
     text-align: center !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
 }
 
 /* Listes : à gauche */
@@ -1368,18 +1341,17 @@ blockquote {
     text-align: left;
 }
 
-/* Améliorer la qualité typographique */
+/* Qualité typographique */
 body {
     text-rendering: optimizeLegibility;
 }
 
-/* Sur mobile : mêmes règles */
+/* Mobile */
 @media (max-width: 480px) {
     .container p {
         text-align: justify;
     }
     
-    /* Exceptions page d'accueil */
     p.subtitle,
     p.click-invitation,
     .meta-info p,
