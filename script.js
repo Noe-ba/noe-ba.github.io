@@ -1,65 +1,27 @@
-// ============================================
-// SCRIPT.JS - Version avec wrapper protégé
-// ============================================
-
-// MODE SOMBRE - Initialiser AVANT DOMContentLoaded
+// MODE SOMBRE - Initialiser au chargement
 (function() {
     const savedMode = localStorage.getItem('darkMode');
     if (savedMode === 'enabled') {
-        document.documentElement.setAttribute('data-theme', 'dark');
+        document.body.classList.add('dark-mode');
     }
 })();
 
-// Fonction pour appliquer le mode sombre via data-attribute
-function applyDarkMode() {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    console.log('🌙 Mode sombre activé (data-theme)');
-}
-
-// Fonction pour retirer le mode sombre
-function removeDarkMode() {
-    document.documentElement.removeAttribute('data-theme');
-    console.log('☀️ Mode clair activé');
-}
-
-// Fonction pour basculer le mode sombre
-function toggleDarkMode() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    
-    if (isDark) {
-        removeDarkMode();
-        localStorage.setItem('darkMode', 'disabled');
-    } else {
-        applyDarkMode();
-        localStorage.setItem('darkMode', 'enabled');
-    }
-}
-
-// TOUT LE CODE S'EXÉCUTE AU CHARGEMENT
+// Chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     
-    console.log('📄 Page chargée');
-    
-    // ===== PARTIE 1 : SOMMAIRE =====
+    // SOMMAIRE
     const pupilTrigger = document.getElementById('pupilTrigger');
     const sommaire = document.getElementById('sommaire');
-    
     let isRevealed = false;
     
     function revealSommaire() {
         if (!isRevealed) {
             sommaire.classList.add('revealed');
-            
             pupilTrigger.style.opacity = '0';
             pupilTrigger.style.pointerEvents = 'none';
-            
             setTimeout(() => {
-                sommaire.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
-                });
+                sommaire.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 300);
-            
             isRevealed = true;
         }
     }
@@ -78,14 +40,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
     
-    // ===== PARTIE 2 : MODE SOMBRE =====
+    // MODE SOMBRE
     const darkModeToggle = document.getElementById('darkModeToggle');
     
     if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-        console.log('✅ Dark mode toggle initialized');
-    } else {
-        console.log('❌ Dark mode toggle button not found');
+        darkModeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
     }
     
 });
