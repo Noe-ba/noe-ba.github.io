@@ -1269,25 +1269,42 @@ body::after {
 }
 
 /* ============================================================
-   JUSTIFICATION DU TEXTE - VERSION CORRIGÉE
-   Exclut la page d'accueil (index.html)
+   JUSTIFICATION DU TEXTE - VERSION FINALE
+   Page d'accueil EXCLUE avec valeurs explicites
    ============================================================ */
 
-/* PAGE D'ACCUEIL : Tout reste centré/aligné comme avant */
-.main-header,
-.main-header *,
-.main-title,
-.subtitle,
+/* PAGE D'ACCUEIL : Forcer les valeurs d'origine explicitement */
+.main-header {
+    text-align: center !important;
+}
+
+.main-title {
+    text-align: center !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+}
+
+.subtitle {
+    text-align: center !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+}
+
 .meta-info,
-.meta-info *,
+.meta-info p,
+.meta-info * {
+    text-align: center !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+}
+
 .click-invitation {
-    text-align: inherit !important; /* Garde l'alignement d'origine */
+    text-align: center !important;
     hyphens: none !important;
     -webkit-hyphens: none !important;
 }
 
 /* PAGES DE CONTENU : Justification propre sans lézardes */
-/* (toutes les pages SAUF index.html) */
 
 /* Justification des paragraphes avec césure automatique */
 .container p {
@@ -1297,25 +1314,20 @@ body::after {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
-}
-
-/* Optimiser l'espacement pour éviter les lézardes */
-.container p {
     word-spacing: -0.05em;
     letter-spacing: 0.01em;
-}
-
-/* Dernière ligne à gauche (pas justifiée) */
-.container p {
     text-align-last: left;
 }
 
-/* Améliorer la qualité typographique */
-body {
-    text-rendering: optimizeLegibility;
+/* MAIS pas les paragraphes de la page d'accueil */
+.main-header p,
+.meta-info p {
+    text-align: center !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
 }
 
-/* Titres et éléments courts : PAS de justification */
+/* Titres : alignement à gauche */
 h1, h2, h3, h4, h5, h6 {
     text-align: left;
     hyphens: none;
@@ -1327,7 +1339,7 @@ ul, ol, li {
     hyphens: none;
 }
 
-/* Citations : justifiées aussi */
+/* Citations : justifiées */
 blockquote {
     text-align: justify;
     hyphens: auto;
@@ -1342,23 +1354,29 @@ blockquote {
 }
 
 /* Navigation : alignement par défaut */
-.nav-top,
-.nav-partie,
+.nav-top {
+    text-align: center;
+}
+
+.nav-partie {
+    text-align: left;
+}
+
 .main-footer {
-    text-align: inherit;
-    hyphens: none;
+    text-align: center;
 }
 
 /* Éviter les mots orphelins */
 .container p {
     orphans: 2;
     widows: 2;
-}
-
-/* Améliorer la coupure des mots longs */
-.container p {
     overflow-wrap: break-word;
     word-wrap: break-word;
+}
+
+/* Améliorer la qualité typographique */
+body {
+    text-rendering: optimizeLegibility;
 }
 
 /* Sur mobile : justification reste active */
@@ -1368,4 +1386,15 @@ blockquote {
         /* Décommentez pour désactiver sur mobile :
         text-align: left; */
     }
+    
+    /* Page d'accueil reste centrée sur mobile */
+    .main-header,
+    .main-title,
+    .subtitle,
+    .meta-info,
+    .meta-info *,
+    .click-invitation {
+        text-align: center !important;
+    }
 }
+
