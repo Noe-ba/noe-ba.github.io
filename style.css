@@ -225,6 +225,7 @@ body::after {
     margin-bottom: 2rem;
     color: var(--text-primary);
     letter-spacing: -0.02em;
+    text-align: center;
 }
 
 .subtitle {
@@ -234,12 +235,14 @@ body::after {
     line-height: 1.6;
     margin-bottom: 3rem;
     letter-spacing: 0.01em;
+    text-align: center;
 }
 
 .meta-info {
     font-size: 0.95rem;
     color: var(--text-tertiary);
     line-height: 1.8;
+    text-align: center;
 }
 
 .meta-info .author {
@@ -1294,7 +1297,9 @@ body::after {
 .container p.subtitle,
 .container p.click-invitation,
 .container .meta-info p,
-.container .main-footer p {
+.container .main-footer p,
+.container .sommaire p,
+.container .sommaire-list p {
     text-align: center !important;
     hyphens: none !important;
     -webkit-hyphens: none !important;
@@ -1305,6 +1310,16 @@ body::after {
 .container .main-title {
     text-align: center !important;
     hyphens: none !important;
+}
+
+/* Empêcher la justification dans le sommaire */
+.sommaire,
+.sommaire *,
+.sommaire-list,
+.sommaire-list * {
+    text-align: left !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
 }
 
 /* Titres : à gauche */
