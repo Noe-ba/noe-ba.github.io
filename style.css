@@ -1379,3 +1379,13 @@ body {
         text-align: justify;
     }
 }
+
+/* === FORCER LE CENTRAGE DU HEADER === */
+.main-header,
+.main-header *,
+.main-title,
+.subtitle,
+.meta-info,
+.meta-info * {
+    text-align: center !important;
+}
