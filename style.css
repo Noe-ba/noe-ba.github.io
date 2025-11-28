@@ -1269,52 +1269,55 @@ body::after {
 }
 
 /* ============================================================
-   JUSTIFICATION DU TEXTE SANS LÉZARDES
-   À ajouter à la fin de votre style.css
+   JUSTIFICATION DU TEXTE - VERSION CORRIGÉE
+   Exclut la page d'accueil (index.html)
    ============================================================ */
 
+/* PAGE D'ACCUEIL : Tout reste centré/aligné comme avant */
+.main-header,
+.main-header *,
+.main-title,
+.subtitle,
+.meta-info,
+.meta-info *,
+.click-invitation {
+    text-align: inherit !important; /* Garde l'alignement d'origine */
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+}
+
+/* PAGES DE CONTENU : Justification propre sans lézardes */
+/* (toutes les pages SAUF index.html) */
+
 /* Justification des paragraphes avec césure automatique */
-p {
+.container p {
     text-align: justify;
-    text-justify: inter-word; /* Espacement entre mots (pas entre lettres) */
-    hyphens: auto; /* Césure automatique pour éviter les trous */
+    text-justify: inter-word;
+    hyphens: auto;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
 }
 
 /* Optimiser l'espacement pour éviter les lézardes */
-p {
-    word-spacing: -0.05em; /* Légère réduction des espaces */
-    letter-spacing: 0.01em; /* Très légère expansion des lettres */
+.container p {
+    word-spacing: -0.05em;
+    letter-spacing: 0.01em;
 }
 
 /* Dernière ligne à gauche (pas justifiée) */
-p {
+.container p {
     text-align-last: left;
 }
 
 /* Améliorer la qualité typographique */
 body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility; /* Meilleur rendu typo */
-}
-
-/* Largeur optimale pour éviter les lézardes (déjà bon : 720px) */
-.container {
-    max-width: 720px; /* Entre 60-75 caractères par ligne = optimal */
+    text-rendering: optimizeLegibility;
 }
 
 /* Titres et éléments courts : PAS de justification */
-h1, h2, h3, h4, h5, h6,
-.main-title,
-.subtitle,
-.meta-info,
-.click-invitation,
-.nav-top,
-.main-footer {
-    text-align: left; /* ou center selon vos besoins actuels */
+h1, h2, h3, h4, h5, h6 {
+    text-align: left;
     hyphens: none;
 }
 
@@ -1338,57 +1341,31 @@ blockquote {
     -webkit-hyphens: auto;
 }
 
-/* ============================================================
-   OPTIMISATIONS SUPPLÉMENTAIRES
-   ============================================================ */
+/* Navigation : alignement par défaut */
+.nav-top,
+.nav-partie,
+.main-footer {
+    text-align: inherit;
+    hyphens: none;
+}
 
-/* Éviter les mots orphelins en fin de ligne */
-p {
-    orphans: 2; /* Minimum 2 lignes en bas de colonne */
-    widows: 2;  /* Minimum 2 lignes en haut de colonne */
+/* Éviter les mots orphelins */
+.container p {
+    orphans: 2;
+    widows: 2;
 }
 
 /* Améliorer la coupure des mots longs */
-p {
-    overflow-wrap: break-word; /* Coupe les mots trop longs */
+.container p {
+    overflow-wrap: break-word;
     word-wrap: break-word;
 }
 
-/* Sur mobile : justification peut être désactivée (optionnel) */
+/* Sur mobile : justification reste active */
 @media (max-width: 480px) {
-    p {
-        /* Option 1 : Garder la justification */
+    .container p {
         text-align: justify;
-        
-        /* Option 2 : Passer en fer à gauche sur très petit écran */
-        /* text-align: left; */
+        /* Décommentez pour désactiver sur mobile :
+        text-align: left; */
     }
 }
-
-/* ============================================================
-   NOTES IMPORTANTES
-   ============================================================ */
-
-/*
-POURQUOI ÇA ÉVITE LES LÉZARDES :
-
-1. hyphens: auto
-   → Coupe les mots longs pour éviter les grands espaces
-
-2. word-spacing: -0.05em
-   → Réduit légèrement les espaces entre mots
-
-3. letter-spacing: 0.01em
-   → Compense en élargissant très légèrement les lettres
-
-4. text-justify: inter-word
-   → Force la justification par les espaces (pas les lettres)
-
-5. max-width: 720px
-   → Largeur optimale (60-75 caractères/ligne)
-
-6. text-rendering: optimizeLegibility
-   → Meilleur rendu des espacements
-
-RÉSULTAT : Justification propre sans "rivières" verticales
-*/
