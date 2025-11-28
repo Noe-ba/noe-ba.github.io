@@ -1,6 +1,7 @@
 /* ============================================
    STYLE MINIMALISTE - Mémoire Œdipe et la machine apprenante
    Design épuré, intellectuel, avec halo lumineux animé
+   VERSION FINALE avec mode sombre corrigé
    ============================================ */
 
 /* === VARIABLES === */
@@ -123,7 +124,6 @@ body {
 body:hover .click-invitation {
     opacity: 0.8;
 }
-
 
 /* === HALO LUMINEUX ANIMÉ === */
 body::before {
@@ -800,10 +800,9 @@ hr {
 }
 
 /* ============================================================
-   MODE SOMBRE via data-theme
+   BOUTON MODE SOMBRE
    ============================================================ */
 
-/* BOUTON TOGGLE MODE SOMBRE */
 .dark-mode-toggle {
     position: fixed;
     top: 2rem;
@@ -833,7 +832,6 @@ hr {
     transform: scale(0.95);
 }
 
-/* Icônes soleil et lune */
 .dark-mode-toggle .icon-sun,
 .dark-mode-toggle .icon-moon {
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -849,42 +847,70 @@ hr {
     transform: rotate(180deg);
 }
 
-/* MODE SOMBRE SUR MOBILE via data-theme */
 @media (max-width: 768px) {
-    html[data-theme="dark"] body {
-        background: #0f1729 !important;
-        color: #e5e7eb !important;
+    .dark-mode-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================================
+   MODE SOMBRE - CORRECTION FINALE MOBILE
+   IMPORTANT : Ces règles doivent être à la fin pour avoir la priorité
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* Force TOUT transparent sauf le body */
+    html[data-theme="dark"] body,
+    html[data-theme="dark"] body * {
+        background-color: transparent !important;
     }
     
+    /* Fond sombre du body */
+    html[data-theme="dark"] body {
+        background: #0f1729 !important;
+    }
+    
+    /* TOUS les textes principaux en blanc */
+    html[data-theme="dark"] body,
     html[data-theme="dark"] .main-title,
     html[data-theme="dark"] h1,
     html[data-theme="dark"] h2,
-    html[data-theme="dark"] h3 {
+    html[data-theme="dark"] h3,
+    html[data-theme="dark"] .title {
         color: #e5e7eb !important;
     }
     
+    /* TOUS les textes secondaires en gris clair */
     html[data-theme="dark"] .subtitle,
     html[data-theme="dark"] .meta-info,
+    html[data-theme="dark"] .meta-info *,
     html[data-theme="dark"] .author,
     html[data-theme="dark"] .institution,
     html[data-theme="dark"] .direction,
-    html[data-theme="dark"] p {
+    html[data-theme="dark"] p,
+    html[data-theme="dark"] .click-invitation {
         color: #cbd5e1 !important;
     }
     
-    html[data-theme="dark"] .click-invitation {
-        color: #94a3b8 !important;
+    /* Sommaire - TOUTES les variations */
+    html[data-theme="dark"] .sommaire,
+    html[data-theme="dark"] .sommaire.revealed {
+        background: transparent !important;
     }
     
-    /* Sommaire en mode sombre */
-    html[data-theme="dark"] .sommaire h2 {
+    html[data-theme="dark"] .sommaire h2,
+    html[data-theme="dark"] .sommaire.revealed h2 {
         color: #cbd5e1 !important;
     }
     
     html[data-theme="dark"] .sommaire-list li a,
     html[data-theme="dark"] .sommaire.revealed .sommaire-list li a {
         background: rgba(30, 41, 59, 0.6) !important;
-        border-color: rgba(74, 144, 226, 0.25) !important;
+        border: 1px solid rgba(74, 144, 226, 0.25) !important;
         color: #e5e7eb !important;
     }
     
@@ -903,26 +929,24 @@ hr {
         color: #6ba3e8 !important;
     }
     
-    html[data-theme="dark"] .sommaire-list li a:hover {
-        background: rgba(30, 41, 59, 0.8) !important;
-        border-color: #6ba3e8 !important;
-    }
-    
     /* Footer */
     html[data-theme="dark"] .main-footer,
     html[data-theme="dark"] .main-footer * {
         color: #94a3b8 !important;
     }
     
+    /* Liens */
     html[data-theme="dark"] a {
         color: #6ba3e8 !important;
     }
     
-    html[data-theme="dark"] .separator {
+    /* Séparateurs */
+    html[data-theme="dark"] .separator,
+    html[data-theme="dark"] hr {
         background: rgba(74, 144, 226, 0.25) !important;
     }
     
-    /* Œil et halos */
+    /* Œil et effets */
     html[data-theme="dark"] .eye-background {
         opacity: 0.15 !important;
     }
@@ -935,7 +959,7 @@ hr {
         opacity: 0.3 !important;
     }
     
-    /* Bouton toggle */
+    /* Bouton toggle en mode sombre */
     html[data-theme="dark"] .dark-mode-toggle {
         background: rgba(0, 0, 0, 0.3) !important;
         border-color: rgba(74, 144, 226, 0.3) !important;
@@ -952,27 +976,13 @@ hr {
     }
 }
 
-/* Responsive pour le bouton sur mobile */
-@media (max-width: 768px) {
-    .dark-mode-toggle {
-        top: 1rem;
-        right: 1rem;
-        width: 32px;
-        height: 32px;
-        font-size: 0.9rem;
-    }
-}
-
 /* Transitions douces */
 body,
 .main-title,
 .subtitle,
 .meta-info,
 a,
-.separator,
-.eye-background,
-body::before,
-body::after {
+.separator {
     transition: background-color 0.3s ease, 
                 color 0.3s ease, 
                 opacity 0.3s ease, 
