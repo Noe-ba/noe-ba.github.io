@@ -1398,3 +1398,32 @@ body {
         text-align: justify;
     }
 }
+/* === FORÇAGE ULTIME DU CENTRAGE PAGE D'ACCUEIL === */
+.main-header .main-title,
+.main-header h1.main-title,
+h1.main-title {
+    text-align: center !important;
+}
+
+.main-header .subtitle,
+.main-header p.subtitle,
+p.subtitle {
+    text-align: center !important;
+}
+
+.main-header .meta-info,
+.meta-info {
+    text-align: center !important;
+}
+
+.main-header .meta-info p,
+.meta-info .author,
+.meta-info .institution,
+.meta-info .direction {
+    text-align: center !important;
+}
+
+p.click-invitation,
+.click-invitation {
+    text-align: center !important;
+}
