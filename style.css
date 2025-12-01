@@ -1330,8 +1330,13 @@ body::after {
     -webkit-hyphens: none !important;
 }
 
-/* Titres : à gauche */
-h1, h2, h3, h4, h5, h6 {
+/* Titres : à gauche (sauf dans le header de la page d'accueil) */
+.container > article h1,
+.container > article h2,
+.container > article h3,
+.container > article h4,
+.container > article h5,
+.container > article h6 {
     text-align: left;
     hyphens: none;
 }
