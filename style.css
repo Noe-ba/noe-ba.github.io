@@ -1434,3 +1434,75 @@ p.click-invitation,
 .click-invitation {
     text-align: center !important;
 }
+<style>
+/* === IMAGES AU SURVOL === */
+.image-hover {
+    position: relative;
+    color: var(--accent);
+    cursor: help;
+    border-bottom: 1px dotted var(--accent);
+    text-decoration: none;
+}
+
+.image-hover:hover {
+    color: var(--accent-light);
+}
+
+.image-hover-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    width: 90%;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    animation: imagePopup 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-hover:hover .image-hover-popup {
+    display: block;
+}
+
+@keyframes imagePopup {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.image-hover-popup img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+}
+
+.image-hover-caption {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Mode sombre */
+body.dark-mode .image-hover-popup {
+    background: rgba(15, 23, 42, 0.98);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .image-hover-caption {
+    color: var(--text-secondary-dark);
+}
+</style>
