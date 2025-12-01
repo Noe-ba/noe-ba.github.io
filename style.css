@@ -1282,8 +1282,7 @@ body::after {
    ============================================================ */
 
 /* Justifier tous les paragraphes */
-.container > article p,
-.container > section p {
+.container p:not(.subtitle):not(.click-invitation):not(.author):not(.institution):not(.direction) {
     text-align: justify;
     text-justify: inter-word;
     hyphens: auto;
