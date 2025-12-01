@@ -484,7 +484,7 @@ blockquote {
     transform: translateX(-50%);
     max-width: 600px;
     width: 90%;
-    background: var(--bg-secondary);
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 0;
     padding: 2rem;
