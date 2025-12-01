@@ -1298,6 +1298,9 @@ body::after {
     word-wrap: break-word;
 }
 
+.main-footer p {
+    text-align: center !important;
+}
 /* EXCEPTIONS : Spécificité PLUS HAUTE */
 .main-header,
 .main-header *,
