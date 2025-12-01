@@ -1317,8 +1317,12 @@ body::after {
 }
 
 /* Empêcher la justification dans le sommaire */
-.sommaire,
-.sommaire *,
+.sommaire h2 {
+    text-align: center !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+}
+
 .sommaire-list,
 .sommaire-list * {
     text-align: left !important;
