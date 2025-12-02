@@ -1438,10 +1438,10 @@ p.click-invitation,
 /* === IMAGES AU SURVOL === */
 .image-hover {
     position: relative;
-    color: var(--accent);
+    color: var(--accent) !important;
     cursor: help;
-    border-bottom: 1px dotted var(--accent);
-    text-decoration: none;
+    border-bottom: 1px dotted var(--accent) !important;
+    text-decoration: none !important;
 }
 
 .image-hover:hover {
