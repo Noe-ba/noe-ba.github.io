@@ -1443,6 +1443,11 @@ p.click-invitation,
     border-bottom: 2px solid var(--accent) !important;
     text-decoration: none !important;
     display: inline;
+    font-weight: 500;
+}
+
+.container .image-hover {
+    color: var(--accent) !important;
 }
 
 .image-hover em,
@@ -1452,7 +1457,7 @@ p.click-invitation,
 }
 
 .image-hover:hover {
-    color: var(--accent-light);
+    color: var(--accent-light) !important;
     border-bottom-color: var(--accent-light) !important;
 }
 
