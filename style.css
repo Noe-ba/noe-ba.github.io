@@ -1440,12 +1440,20 @@ p.click-invitation,
     position: relative;
     color: var(--accent) !important;
     cursor: help;
-    border-bottom: 1px dotted var(--accent) !important;
+    border-bottom: 2px solid var(--accent) !important;
     text-decoration: none !important;
+    display: inline;
+}
+
+.image-hover em,
+.image-hover i {
+    color: var(--accent) !important;
+    border-bottom: inherit;
 }
 
 .image-hover:hover {
     color: var(--accent-light);
+    border-bottom-color: var(--accent-light) !important;
 }
 
 .image-hover-popup {
