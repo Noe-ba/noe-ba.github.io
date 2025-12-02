@@ -1505,8 +1505,13 @@ p.click-invitation,
     font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    font-style: italic;
+    font-style: normal;
     text-align: center;
+}
+
+.image-hover-caption em,
+.image-hover-caption i {
+    font-style: italic;
 }
 
 /* Mode sombre */
