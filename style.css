@@ -1530,18 +1530,11 @@ body.dark-mode .image-hover-caption {
 }
 </style>
 
-/* === FIX BUG MOBILE : Transitions plus nettes pour éviter superposition === */
+/* === FIX BUG MOBILE : Désactiver transitions pendant changement de mode === */
 @media (max-width: 768px) {
-    body,
-    body * {
-        transition-duration: 0.15s !important;
-    }
-    
-    /* Forcer le GPU du mobile à recalculer l'affichage */
-    .sommaire,
-    .note-popup,
-    .grothendieck-accordion {
-        transform: translateZ(0);
-        will-change: transform;
+    body.no-transition,
+    body.no-transition * {
+        transition: none !important;
+        animation: none !important;
     }
 }
