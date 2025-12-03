@@ -1529,24 +1529,3 @@ body.dark-mode .image-hover-caption {
     color: var(--text-secondary-dark);
 }
 </style>
-
-/* === FIX BUG MOBILE : Empêcher la superposition lors du changement de mode === */
-@media (max-width: 768px) {
-    /* Forcer la transition instantanée sur mobile pour éviter les bugs */
-    body.dark-mode .note-popup,
-    body:not(.dark-mode) .note-popup,
-    body.dark-mode .grothendieck-accordion,
-    body:not(.dark-mode) .grothendieck-accordion,
-    body.dark-mode .sommaire,
-    body:not(.dark-mode) .sommaire {
-        transition: all 0.1s ease !important;
-    }
-    
-    /* S'assurer que les éléments cachés restent bien cachés */
-    .note-popup:not(.active),
-    .grothendieck-accordion:not(.active) .grothendieck-content {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-}
