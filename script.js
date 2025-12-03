@@ -41,21 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 
-// MODE SOMBRE
+ // MODE SOMBRE
     const darkModeToggle = document.getElementById('darkModeToggle');
     
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', function() {
-            // Changer le mode
             document.body.classList.toggle('dark-mode');
             
-            // Forcer un repaint complet du navigateur
-            // Cela évite les bugs de superposition sans fermer les éléments
-            document.body.style.display = 'none';
-            document.body.offsetHeight; // Force reflow
-            document.body.style.display = '';
-            
-            // Sauvegarder la préférence
             if (document.body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
             } else {
