@@ -41,17 +41,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 
- // MODE SOMBRE
+// MODE SOMBRE
     const darkModeToggle = document.getElementById('darkModeToggle');
     
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', function() {
+            // Sur mobile : désactiver temporairement toutes les transitions
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Ajouter une classe qui désactive les transitions
+                document.body.classList.add('no-transition');
+            }
+            
+            // Changer le mode
             document.body.classList.toggle('dark-mode');
             
+            // Sauvegarder la préférence
             if (document.body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
             } else {
                 localStorage.setItem('darkMode', 'disabled');
+            }
+            
+            // Sur mobile : réactiver les transitions après le changement
+            if (isMobile) {
+                setTimeout(() => {
+                    document.body.classList.remove('no-transition');
+                }, 100);
             }
         });
     }
